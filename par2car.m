@@ -38,6 +38,7 @@ end
 % -------------------------------------------------------------
 
 % Rotation matrixes
+
 R_OM =  [ cos(OM),    sin(OM),    0;
           -sin(OM),   cos(OM),    0;
           0,          0,          1 ];
@@ -55,11 +56,12 @@ T = ( R_om * R_i * R_OM )';
 % -------------------------------------------------------------
 
 % Finds rr and vv given the input parameters
-p = a * (1 - e^2);
-r_norm = p / (1 + e * cos(th));
 
-rr_tilde = r_norm * [cos(th), sin(th), 0]';
+p = a * (1 - e^2);
+r_norm = p / ( 1 + e * cos(th) );
+
+rr_tilde = r_norm * [ cos(th), sin(th), 0 ]';
 rr = T * rr_tilde;
 
-vv_tilde = sqrt(mu / p) * [-sin(th), e + cos(th), 0]';
+vv_tilde = sqrt(mu / p) * [ -sin(th), e + cos(th), 0 ]';
 vv = T * vv_tilde;

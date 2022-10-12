@@ -29,50 +29,49 @@ end
 
 % -------------------------------------------------------------
 
+% Finds a
 r = norm(rr);
 v = norm(vv);
-
 a = 1 / ( (2/r) - (v^2 / mu) );
+
+% Finds e
 hh = cross(rr, vv);
 h = norm(hh);
-
 ee = cross(vv, hh)./mu - rr./r;
-
 e = norm(ee);
 
-i = acos(hh(3)/h);
+% Finds i
+i = acos(hh(3) / h);
+
+% Calculates N vector (line of nodes)
 k = [0 0 1]';
+N = cross(k, hh) / norm( cross(k, hh) );
 
-N = cross(k, hh)/norm(cross(k, hh));
-
-OM = acos(N(1));
+% Finds OM
+OM = acos( N(1) );
 if N(2) < 0
     OM = 2*pi - OM;
 end
 
-om = acos(dot(N, ee)/e);
-
+% Finds om
+om = acos( dot(N, ee) / e );
 if ee(3) < 0
     om = 2*pi - om;
 end
 
-vr = dot(vv, rr)/r;
-
-th = acos(dot(rr, ee)/(r*e));
-
+% Finds th
+vr = dot(vv, rr) / r;
+th = acos( dot(rr, ee) / (r*e) );
 if vr < 0 
     th = 2*pi - th;
 end
 
+% -------------------------------------------------------------
+
+% If output angles have to be in degrees, does the conversion
 if unit == "deg"
     i = rad2deg(i);
     OM = rad2deg(OM);
     om = rad2deg(om);
     th = rad2deg(th);
 end
-
-
-
-
-
-
