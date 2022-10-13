@@ -27,6 +27,13 @@ if nargin == 7
     mu = 3.986 * 10^5;
 end
 
+% check parameters
+if i == 0
+
+    
+end
+
+
 % If angles are in degrees, converts in radians
 if unit == "deg"
     i = deg2rad(i);
