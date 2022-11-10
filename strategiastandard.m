@@ -53,9 +53,9 @@ deltat5 = TOF(af, ef, th6, thf);
 
 %% velocità totali e tempi totali
 
-DeltaV_tot = abs(DeltaV1) + abs(DeltaV2) + abs(DeltaV3) + abs(DeltaV4)
+DeltaV_tot = abs(DeltaV1) + abs(DeltaV2) + abs(DeltaV3) + abs(DeltaV4);
 
-deltat_tot = deltat1 + deltat2 + deltat3 + deltat4 + deltat5 %tempo in secondi
+deltat_tot = deltat1 + deltat2 + deltat3 + deltat4 + deltat5; %tempo in secondi
 
-deltat_tot_h = deltat_tot/3600 %tempo in ore
+deltat_tot_h = deltat_tot/3600; %tempo in ore
 
