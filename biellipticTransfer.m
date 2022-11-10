@@ -1,4 +1,4 @@
-function [DeltaV1, DeltaV2, DeltaV3, Deltat1, Deltat2] = biellipticTransfer(a_i, e_i, a_f, e_f, ra_t, mu)
+function [DeltaV1, DeltaV2, DeltaV3, Deltat1, Deltat2] = biellipticTransfer(a_i, e_i, a_f, e_f, rat, mu)
 
 % Bitangent transfer for ellipctic orbits
 % 
@@ -31,9 +31,9 @@ end
 
 % t1
 rpt1 = a_i * (1 - e_i);
-rat1 = a_f * (1 + e_f);
+rat1 = rat;
 
-a_t1 = (rpt + rat)/2;
+a_t1 = (rpt + rat1)/2;
 
 % t2
 rat2 = rat1;
