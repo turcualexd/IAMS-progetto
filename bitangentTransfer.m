@@ -8,8 +8,8 @@ function [DeltaV1, DeltaV2, Deltat, om_f_new] = bitangentTransfer(a_i, e_i, a_f,
 % Input arguments:
 % ai            [1x1]       initial semi-major axis                         [km]
 % ei            [1x1]       initial eccentricity                            [-]
-% af            [1x1]       finale semi-major axis                          [km]
-% ef            [1x1]       initial eccentricity                            [-]
+% af            [1x1]       final semi-major axis                           [km]
+% ef            [1x1]       finale  eccentricity                            [-]
 % type          [cahr]      maneuver type                                   [-]
 % om_i          [1x1]       initial pericenter anomaly                      [rad]
 % mu            [1x1]       gravitational parameter                         [km^3/s^2]
