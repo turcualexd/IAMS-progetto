@@ -24,13 +24,13 @@ if nargin == 4
     mu = 3.986e5;
 end
 
-E1 = 2*atan(sqrt((1-e)/(1+e))*tan(th1/2))
-E2 = 2*atan(sqrt((1-e)/(1+e))*tan(th2/2))
+E1 = 2*atan(sqrt((1-e)/(1+e))*tan(th1/2));
+E2 = 2*atan(sqrt((1-e)/(1+e))*tan(th2/2));
 
 n = sqrt(mu/(a^3));
 
-t1 = (E1 - e * sin(E1))/n
-t2 = (E2 - e * sin(E2))/n
+t1 = (E1 - e * sin(E1))/n;
+t2 = (E2 - e * sin(E2))/n;
 
 deltat = t2 - t1;
 
