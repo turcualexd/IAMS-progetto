@@ -40,19 +40,3 @@ if th2 < th1
     deltat = deltat + T;
 end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
