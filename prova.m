@@ -13,8 +13,36 @@ hold on
 plotOrbit(a, e, i, OM, om, 0, 10*pi, 0.001, "rad"); %orbita iniziale
 %hold on
 plot3(rr(1), rr(2), rr(3), 'o');
+i_i = i;
+i_f = pi;
+OM_i = OM;
+OMf = 3.0230; 
 
-%parametri finali
+
+[DeltaV, omf, theta] = changeOrbitalPlane(a, e, i_i, OM, om, i_f, OMf);
+
+%plot3(rr2(1), rr2(2), rr2(3), 'o');
+
+plotOrbit(a, e, i_f, OMf, omf, 0, 2*pi, 0.001, "rad");
+
+quiver3(0,0,0,1,0,0, 1e4);
+quiver3(0,0,0,0,1,0, 1e4);
+quiver3(0,0,0,0,0,1, 1e4);
+R1  = par2car(a, e, i, OM, om, theta(1), 'rad');
+quiver3(0,0,0, R1(1), R1(2), R1(3));
+R2  = par2car(a, e, i, OM, om, theta(2), 'rad');
+quiver3(0,0,0, R2(1), R2(2), R2(3));
+
+R3  = par2car(a, e, i_f, OMf, omf, theta(1), 'rad');
+quiver3(0,0,0, R3(1), R3(2), R3(3));
+R4  = par2car(a, e, i_f, OMf, omf, theta(2), 'rad');
+quiver3(0,0,0, R4(1), R4(2), R4(3));
+
+
+
+
+
+%% parametri finali
 
 af = 10860;
 ef = 0.2332;
@@ -30,7 +58,7 @@ quiver3(0,0,0,1,0,0, 1e4);
 quiver3(0,0,0,0,1,0, 1e4);
 quiver3(0,0,0,0,0,1, 1e4);
 title('Orbits');
-legend("","initial orbit", "initial point", "final orbit", "final point");
+legend("","initial orbit", "i3nitial point", "final orbit", "final point");
 
 
 % se i = 0 (orbita equatoriale) non posso ricavare N, OM, om, uso N = 0 0
