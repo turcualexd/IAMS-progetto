@@ -46,7 +46,7 @@ deltat3 = TOF(ai, ei, theta_cwf(2), 0);
 %% 6: bitangentTransfer
 [DeltaV3, DeltaV4, deltat4] = bitangentTransfer(ai, ei, af, ef, 'pa', omf);
 % sto andando da theta 0 a theta pi
-th6 = pi;
+th6 = pi; %apocentro
 
 %% 7: attesa fino a theta finale
 deltat5 = TOF(af, ef, th6, thf);
