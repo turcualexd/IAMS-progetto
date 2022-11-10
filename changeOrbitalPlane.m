@@ -39,6 +39,16 @@ elseif DeltaOM == 0
     omf = omi;
     theta1 = 2*pi - omf;
 
+elseif i_i == 0
+    alpha = Deltai;
+    omf = omi - OMf;
+    theta1 = OMf;
+
+elseif i_f == 0
+    alpha = Deltai;
+    omf = omi + OMi;
+    theta1 = 2*pi - omi;
+
 else
     alpha = acos( cos(i_i) * cos(i_f) + sin(i_i) * sin(i_f) * cos(DeltaOM) );
     sin_ui = sin(DeltaOM) / sin(alpha) * sin(i_f);
