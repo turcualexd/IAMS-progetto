@@ -44,8 +44,13 @@ e = norm(ee);
 i = acos(hh(3) / h);
 
 % Calculates N vector (line of nodes)
-k = [0 0 1]';
-N = cross(k, hh) / norm( cross(k, hh) );
+if i >= 1e-5
+    k = [0 0 1]';
+    N = cross(k, hh) / norm( cross(k, hh) );
+else
+    N = [1 0 0]';
+end
+
 
 % Finds OM
 OM = acos( N(1) );
