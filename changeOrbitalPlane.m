@@ -42,7 +42,7 @@ elseif DeltaOM == 0
 elseif i_i == 0
     alpha = Deltai;
     omf = omi - OMf;
-    theta1 = OMf;
+    theta1 = 2*pi - omf;
 
 elseif i_f == 0
     alpha = Deltai;

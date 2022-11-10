@@ -17,15 +17,14 @@ plotOrbit(a, e, i, OM, om, 0, 10*pi, 0.001, "rad"); %orbita iniziale
 %hold on
 plot3(rr(1), rr(2), rr(3), 'o');
 i_i = i;
-i_f = pi/2;
+i_f = pi/3;
 OM_i = OM;
-OMf = pi/4; 
+OMf = pi/4;
 
 
 [DeltaV, omf, theta] = changeOrbitalPlane(a, e, i_i, OM, om, i_f, OMf);
 
 %plot3(rr2(1), rr2(2), rr2(3), 'o');
-omf = om + OM;
 
 plotOrbit(a, e, i_f, OMf, omf, 0, 2*pi, 0.001, "rad");
 
@@ -62,7 +61,6 @@ quiver3(0,0,0,1,0,0, 1e4);
 quiver3(0,0,0,0,1,0, 1e4);
 quiver3(0,0,0,0,0,1, 1e4);
 title('Orbits');
-legend("","initial orbit", "i3nitial point", "final orbit", "final point");
 
 
 % se i = 0 (orbita equatoriale) non posso ricavare N, OM, om, uso N = 0 0
