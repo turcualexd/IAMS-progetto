@@ -49,10 +49,20 @@ elseif i_f == 0
     omf = omi + OMi;
     theta1 = 2*pi - omi;
 
+elseif i_i == pi
+    alpha = Deltai;
+    omf = omi - OMf;
+    theta1 = 2*pi - omf;
+
+elseif i_f == pi
+    alpha = Deltai;
+    omf = omi + OMi;
+    theta1 = 2*pi - omi;
+
 else
-    alpha = acos( cos(i_i) * cos(i_f) + sin(i_i) * sin(i_f) * cos(DeltaOM) );
-    sin_ui = sin(DeltaOM) / sin(alpha) * sin(i_f);
-    sin_uf = sin(DeltaOM) / sin(alpha) * sin(i_i);
+    alpha = acos( cos(i_i) * cos(i_f) + sin(i_i) * sin(i_f) * cos(abs(DeltaOM)) );
+    sin_ui = sin(abs(DeltaOM)) / sin(alpha) * sin(i_f);
+    sin_uf = sin(abs(DeltaOM)) / sin(alpha) * sin(i_i);
 
     if DeltaOM > 0 && Deltai > 0
         cos_ui = (-cos(i_f) + cos(alpha) * cos(i_i)) / (sin(alpha) * sin(i_i));

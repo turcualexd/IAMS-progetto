@@ -7,8 +7,6 @@ vv = [-2.5 -2.5 3]';
 
 
 [a, e, i, OM, om, th] = car2par(rr, vv, "rad");
-i = 0;
-OM = 0;
 
 %[rr2, vv2] = par2car(a, e, i, OM, om, th, "rad");
 Terra_3D
@@ -17,9 +15,9 @@ plotOrbit(a, e, i, OM, om, 0, 10*pi, 0.001, "rad"); %orbita iniziale
 %hold on
 plot3(rr(1), rr(2), rr(3), 'o');
 i_i = i;
-i_f = pi/3;
+i_f = pi;
 OM_i = OM;
-OMf = pi/4;
+OMf = 0;
 
 
 [DeltaV, omf, theta] = changeOrbitalPlane(a, e, i_i, OM, om, i_f, OMf);
