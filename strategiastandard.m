@@ -44,9 +44,17 @@ deltat2 = TOF(ai, ei, theta_cp, theta_cwi(2));
 deltat3 = TOF(ai, ei, theta_cwf(2), 0);
 
 %% 6: bitangentTransfer
+
+% mi servono anche i dati dell'arco bitangente e non solo delle orbite
+% iniziali e finali quindi:
+rpt = ai * (1 - ei);
+rat = af * (1 + ef);
+at = (rpt + rat)/2;
+et = (rat - rpt)/(rat + rpt);
 [DeltaV3, DeltaV4, deltat4] = bitangentTransfer(ai, ei, af, ef, 'pa', omf);
 % sto andando da theta 0 a theta pi
 th6 = pi; %apocentro
+
 
 %% 7: attesa fino a theta finale
 deltat5 = TOF(af, ef, th6, thf);
@@ -59,3 +67,67 @@ deltat_tot = deltat1 + deltat2 + deltat3 + deltat4 + deltat5; %tempo in secondi
 
 deltat_tot_h = deltat_tot/3600; %tempo in ore
 
+
+%% plot
+
+Terra_3D
+
+% iniziale
+plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad')
+hold on
+plot3(rr(1), rr(2), rr(3), 'ko');
+
+% cambio orbita
+plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad')
+[rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
+plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
+
+% cambio anomalia pericentro
+plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad')
+[rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf(2), "rad");
+plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
+
+% arco biellittico
+plotOrbit(at, et, i_f, OMf, omf, 0, pi, 0.001, 'rad')
+[rrpt, vvpt] = par2car(at, et, i_f, OMf, omf, 0, "rad");
+plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
+
+[rrat, vvat] = par2car(at, et, i_f, OMf, omf, pi, "rad");
+plot3(rrat(1), rrat(2), rrat(3), 'k*');
+
+% finale
+plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad')
+[rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
+plot3(rr2(1), rr2(2), rr2(3), 'ko');
+
+%% plottare su grafici diversi (?)
+
+% %Terra_3D
+% % 
+% % iniziale
+% plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad' )
+% plot3(rr(1), rr(2), rr(3), 'o');
+% figure
+% % cambio orbita
+% 
+% figure
+% Terra_3D
+% plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad')
+% 
+% % cambio anomalia pericentro
+% figure
+% Terra_3D
+% plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad')
+% 
+% % arco biellittico
+% figure
+% Terra_3D
+% plotOrbit(at, et, i_f, OMf, omf, 0, pi, 0.001, 'rad')
+% 
+% % finale
+% figure
+% Terra_3D
+% plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad')
+% 
+% 
+% 
