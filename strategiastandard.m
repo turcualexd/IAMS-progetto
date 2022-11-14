@@ -21,7 +21,7 @@ thf = 0.3316;
 % theta_cp è punto di cambio piano
 [DeltaV1, om2, theta_cp] = changeOrbitalPlane(ai, ei, ii, OMi, omi, i_f, OMf);
 
-% prendo il delta v minore 
+% prendo il delta v minore
 DeltaV1 = DeltaV1(2);
 theta_cp = theta_cp(2);
 % tempo di attesa 1: da theta iniziale a theta di cambio piano
@@ -31,8 +31,9 @@ deltat1 = TOF(ai, ei, thi, theta_cp);
 
 %% 4: changePericenterArg, cambio argomento pericentro
 [DeltaV2, theta_cwi, theta_cwf] = changePericenterArg(ai, ei, om2, omf);
-
-deltat2 = TOF(ai, ei, theta_cp, theta_cwi(2));
+theta_cwi = theta_cwi(2);
+theta_cwf = theta_cwf(2);
+deltat2 = TOF(ai, ei, theta_cp, theta_cwi);
 % decidere quale theta considerare, non incide su delta v ma incide sul
 % tempo e su qualcosa dopo!!!!!!
 %
@@ -42,7 +43,7 @@ deltat2 = TOF(ai, ei, theta_cp, theta_cwi(2));
 % finale per il delta tempo 3 
 
 %% 5: vado al pericentro theta = 0 rad
-deltat3 = TOF(ai, ei, theta_cwf(2), 0);
+deltat3 = TOF(ai, ei, theta_cwf, 0);
 
 %% 6: bitangentTransfer
 
@@ -87,7 +88,7 @@ plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
 % cambio anomalia pericentro
 plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
 
-[rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf(2), "rad");
+[rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf, "rad");
 plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
 
 % arco bitangente
@@ -130,7 +131,7 @@ hold off
 % Terra_3D
 % plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
 % 
-% [rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf(2), "rad");
+% [rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf, "rad");
 % plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
 % 
 % % arco bitangente
