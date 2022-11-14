@@ -12,12 +12,13 @@ OMf = 3.0230;
 omf = 0.4299;
 thf = 0.3316;
 
-%% 0: car2par
+%% 0: car2par, trovo dati orbita iniziale
 [ai, ei, ii, OMi, omi, thi] = car2par(rr, vv, 'rad');
 
 %% 1: arrivo al punto di cambio piano theta_cp
 
-%% 2: changeorbitalplane
+%% 2: changeorbitalplane, campio piano orbita
+% theta_cp è punto di cambio piano
 [DeltaV1, om2, theta_cp] = changeOrbitalPlane(ai, ei, ii, OMi, omi, i_f, OMf);
 
 % prendo il delta v minore 
@@ -28,7 +29,7 @@ deltat1 = TOF(ai, ei, thi, theta_cp);
 
 %% 3: arrivo a punto di cambio anomalia theta_cw 1 e 2
 
-%% 4: changePericenterArg
+%% 4: changePericenterArg, cambio argomento pericentro
 [DeltaV2, theta_cwi, theta_cwf] = changePericenterArg(ai, ei, om2, omf);
 
 deltat2 = TOF(ai, ei, theta_cp, theta_cwi(2));
