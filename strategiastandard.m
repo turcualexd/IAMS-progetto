@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all
 
 %% dati iniziali
 rr = [1e4 2e4 1e4]';
@@ -50,8 +50,8 @@ deltat3 = TOF(ai, ei, theta_cwf(2), 0);
 rpt = ai * (1 - ei);
 rat = af * (1 + ef);
 at = (rpt + rat)/2;
-et = (rat - rpt)/(rat + rpt);
-[DeltaV3, DeltaV4, deltat4] = bitangentTransfer(ai, ei, af, ef, 'pa', omf);
+et = (rpt - rat)/(rat + rpt);
+[DeltaV3, DeltaV4, deltat4, omf_new] = bitangentTransfer(ai, ei, af, ef, 'pa', omf);
 % sto andando da theta 0 a theta pi
 th6 = pi; %apocentro
 
@@ -70,82 +70,87 @@ deltat_tot_h = deltat_tot/3600; %tempo in ore
 
 %% plot
 
-Terra_3D
-
 % iniziale
+Terra_3D
 plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
 hold on
+
 plot3(rr(1), rr(2), rr(3), 'ko');
 
 % cambio orbita
 plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad', 'm')
+
 [rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
 plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
 
 % cambio anomalia pericentro
 plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
+
 [rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf(2), "rad");
 plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
 
-% arco biellittico
-plotOrbit(at, et, i_f, OMf, omf, 0, pi, 0.001, 'rad', 'b')
-[rrpt, vvpt] = par2car(at, et, i_f, OMf, omf, 0, "rad");
-plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
+% arco bitangente
+plotOrbit(at, et, i_f, OMf, omf_new, pi, 2*pi, 0.001, 'rad', 'b')
 
-[rrat, vvat] = par2car(at, et, i_f, OMf, omf, pi, "rad");
+[rrpt, vvpt] = par2car(at, et, i_f, OMf, omf_new, pi, "rad");
+plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
+[rrat, vvat] = par2car(at, et, i_f, OMf, omf_new, 2*pi, "rad");
 plot3(rrat(1), rrat(2), rrat(3), 'k*');
 
 % finale
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
+
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rr2(1), rr2(2), rr2(3), 'ko');
-
 hold off
 
-%% plottare su grafici diversi (?)
 
-Terra_3D
 
-% iniziale
-plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
-hold on
-plot3(rr(1), rr(2), rr(3), 'ko');
 
-% cambio orbita
 
-figure
-Terra_3D
-plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad', 'm')
-hold on
-[rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
-plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
 
-% cambio anomalia pericentro
-figure
-Terra_3D
-hold on
-plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
-hold on
-[rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf(2), "rad");
-plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
 
-% arco biellittico
-figure
-Terra_3D
-hold on
-plotOrbit(at, et, i_f, OMf, omf, 0, pi, 0.001, 'rad', 'b')
-[rrpt, vvpt] = par2car(at, et, i_f, OMf, omf, 0, "rad");
-plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
 
-[rrat, vvat] = par2car(at, et, i_f, OMf, omf, pi, "rad");
-plot3(rrat(1), rrat(2), rrat(3), 'k*');
 
-% finale
-figure
-Terra_3D
-hold on
-plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
-hold on
-[rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
-plot3(rr2(1), rr2(2), rr2(3), 'ko');
 
+
+
+%%
+% %% plottare su grafici diversi 
+% 
+% % iniziale
+% Terra_3D
+% plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
+% 
+% plot3(rr(1), rr(2), rr(3), 'ko');
+% 
+% % cambio orbita
+% Terra_3D
+% plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad', 'm')
+% 
+% [rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
+% plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
+% 
+% % cambio anomalia pericentro
+% Terra_3D
+% plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
+% 
+% [rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf(2), "rad");
+% plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
+% 
+% % arco bitangente
+% Terra_3D
+% plotOrbit(at, et, i_f, OMf, omf, 0, pi, 0.001, 'rad', 'b')
+% 
+% [rrpt, vvpt] = par2car(at, et, i_f, OMf, omf, 0, "rad");
+% plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
+% [rrat, vvat] = par2car(at, et, i_f, OMf, omf, pi, "rad");
+% plot3(rrat(1), rrat(2), rrat(3), 'k*');
+% 
+% % finale
+% Terra_3D
+% plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
+% 
+% [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
+% plot3(rr2(1), rr2(2), rr2(3), 'ko');
+% 

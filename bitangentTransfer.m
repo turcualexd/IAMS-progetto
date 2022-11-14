@@ -50,6 +50,8 @@ switch type
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rpt) - (1/a_t)) - sqrt(( 2/rpi) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/raf) - (1/a_f)) - sqrt(( 2/rat) - 1/a_t));
 
+        om_f_new = om_i + pi;
+
     case 'ap'
 
         rat = a_i * (1 + e_i);
@@ -61,6 +63,9 @@ switch type
 
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rat) - (1/a_t)) - sqrt(( 2/rai) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/rpf) - (1/a_f)) - sqrt(( 2/rpt) - 1/a_t));
+
+        om_f_new = om_i + pi;
+
 
     case 'pp'
 
