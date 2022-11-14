@@ -17,8 +17,8 @@ function [rr, vv] = par2car(a, e, i, OM, om, th, unit, mu)
 % 
 % -----------------------------------------------------------------------------------
 % Output arguments:
-% rr            [1x1]       position vector                                 [km]
-% vv            [1x1]       velocity vector                                 [km/s]
+% rr            [3x1]       position vector                                 [km]
+% vv            [3x1]       velocity vector                                 [km/s]
 % 
 % -----------------------------------------------------------------------------------
 

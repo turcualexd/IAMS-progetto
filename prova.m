@@ -11,11 +11,11 @@ vv = [-2.5 -2.5 3]';
 %[rr2, vv2] = par2car(a, e, i, OM, om, th, "rad");
 Terra_3D
 hold on
-plotOrbit(a, e, i, OM, om, 0, 10*pi, 0.001, "rad"); %orbita iniziale
+plotOrbit(a, e, i, OM, om, 0, 10*pi, 0.001, "rad", 'k'); %orbita iniziale
 %hold on
 plot3(rr(1), rr(2), rr(3), 'o');
-i_i = i;
-i_f = pi;
+i_i = pi;
+i_f = pi + 1e-9;
 OM_i = OM;
 OMf = 0;
 
@@ -24,7 +24,7 @@ OMf = 0;
 
 %plot3(rr2(1), rr2(2), rr2(3), 'o');
 
-plotOrbit(a, e, i_f, OMf, omf, 0, 2*pi, 0.001, "rad");
+plotOrbit(a, e, i_f, OMf, omf, 0, 2*pi, 0.001, "rad", 'k');
 
 quiver3(0,0,0,1,0,0, 1e4);
 quiver3(0,0,0,0,1,0, 1e4);
