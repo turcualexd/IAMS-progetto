@@ -109,12 +109,6 @@ hold off
 
 
 
-
-
-
-
-
-
 %%
 % %% plottare su grafici diversi 
 % 
@@ -140,11 +134,11 @@ hold off
 % 
 % % arco bitangente
 % Terra_3D
-% plotOrbit(at, et, i_f, OMf, omf, 0, pi, 0.001, 'rad', 'b')
+% plotOrbit(at, et, i_f, OMf, omf_new, pi, 2*pi, 0.001, 'rad', 'b')
 % 
-% [rrpt, vvpt] = par2car(at, et, i_f, OMf, omf, 0, "rad");
+% [rrpt, vvpt] = par2car(at, et, i_f, OMf, omf_new, pi, "rad");
 % plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
-% [rrat, vvat] = par2car(at, et, i_f, OMf, omf, pi, "rad");
+% [rrat, vvat] = par2car(at, et, i_f, OMf, omf_new, 2*pi, "rad");
 % plot3(rrat(1), rrat(2), rrat(3), 'k*');
 % 
 % % finale
