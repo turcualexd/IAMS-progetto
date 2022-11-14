@@ -40,42 +40,55 @@ switch type
 
     case 'pa' 
 
-        rpt = a_i * (1 - e_i);
-        rat = a_f * (1 + e_f);
+        rpi = a_i * (1 - e_i);
+        raf = a_f * (1 + e_f);
 
-        rpi = rpt;
-        raf = rat;
+        if rpi < raf
+            rpt = rpi;
+            rat = raf;  
+        else
+            rat = rpi;
+            rpt = raf;
+            om_f_new = om_i + pi;
+        end
+        
         a_t = (rpt + rat)/2;
 
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rpt) - (1/a_t)) - sqrt(( 2/rpi) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/raf) - (1/a_f)) - sqrt(( 2/rat) - 1/a_t));
 
-        om_f_new = om_i + pi;
-
     case 'ap'
 
-        rat = a_i * (1 + e_i);
-        rpt = a_f * (1 - e_f);
+        rai = a_i * (1 + e_i);
+        rpf = a_f * (1 - e_f);
+
+        if rpf < rai
+            rpt = rpf;
+            rat = rai;  
+        else
+            rat = rpf;
+            rpt = rai;
+            om_f_new = om_i + pi;
+        end
+        
         a_t = (rat + rpt)/2;
-
-        rai = rat;
-        rpf = rpt;
-
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rat) - (1/a_t)) - sqrt(( 2/rai) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/rpf) - (1/a_f)) - sqrt(( 2/rpt) - 1/a_t));
 
-        om_f_new = om_i + pi;
-
-
     case 'pp'
 
-        rpt = a_i * (1 - e_i);
-        rat = a_f * (1 - e_f);
+        rpi = a_i * (1 - e_i);
+        rpf = a_f * (1 - e_f);
+
+        if rpf < rpi
+            rpt = rpf;
+            rat = rpi;  
+        else
+            rat = rpf;
+            rpt = rpi;
+        end
+
         a_t = (rat + rpt)/2;
-
-        rpi = rpt;
-        rpf = rat;
-
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rpt) - (1/a_t)) - sqrt(( 2/rpi) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/rpf) - (1/a_f)) - sqrt(( 2/rat) - 1/a_t));
 
@@ -83,13 +96,18 @@ switch type
 
     case 'aa'
 
-        rpt = a_i * ( 1 + e_i);
-        rat = a_f * ( 1 + e_f);
+        rai = a_i * ( 1 + e_i);
+        raf = a_f * ( 1 + e_f);
+
+        if rai < raf
+            rpt = rai;
+            rat = raf;
+        else
+            rpt = raf;
+            rat = rai;
+        end     
+        
         a_t = (rat + rpt)/2;
-
-        rai = rpt;
-        raf = rat;
-
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rpt) - (1/a_t)) - sqrt(( 2/rai) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/raf) - (1/a_f)) - sqrt(( 2/rat) - 1/a_t));
         
