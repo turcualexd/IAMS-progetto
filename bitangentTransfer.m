@@ -1,4 +1,4 @@
-function [DeltaV1, DeltaV2, Deltat, om_f_new] = bitangentTransfer(a_i, e_i, a_f, e_f, type, om_i,  mu)
+function [DeltaV1, DeltaV2, Deltat, om_f_new, om_t] = bitangentTransfer(a_i, e_i, a_f, e_f, type, om_i,  mu)
 
 % Bitangent transfer for ellipctic orbits
 % 
@@ -33,6 +33,7 @@ end
 % hanges during che manuevre 
 
 om_f_new = om_i;
+om_t = om_i;
 
 % Dependening on the maneuvre selected, defines the transfer orbit
 
@@ -49,7 +50,7 @@ switch type
         else
             rat = rpi;
             rpt = raf;
-            om_f_new = om_i + pi;
+            om_t = om_i + pi;
         end
         
         a_t = (rpt + rat)/2;
@@ -68,7 +69,7 @@ switch type
         else
             rat = rpf;
             rpt = rai;
-            om_f_new = om_i + pi;
+            om_t = om_i + pi;
         end
         
         a_t = (rat + rpt)/2;
@@ -86,6 +87,7 @@ switch type
         else
             rat = rpf;
             rpt = rpi;
+            om_t = om_i + pi;
         end
 
         a_t = (rat + rpt)/2;
@@ -105,6 +107,7 @@ switch type
         else
             rpt = raf;
             rat = rai;
+            om_t = om_i + pi;
         end     
         
         a_t = (rat + rpt)/2;

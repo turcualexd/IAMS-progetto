@@ -52,7 +52,7 @@ rpt = ai * (1 - ei);
 rat = af * (1 + ef);
 at = (rpt + rat)/2;
 et = (rpt - rat)/(rat + rpt);
-[DeltaV3, DeltaV4, deltat4, omf_new] = bitangentTransfer(ai, ei, af, ef, 'pa', omf);
+[DeltaV3, DeltaV4, deltat4, omf_new, om_t] = bitangentTransfer(ai, ei, af, ef, 'pa', omf);
 % sto andando da theta 0 a theta pi
 th6 = pi; %apocentro
 
@@ -91,11 +91,11 @@ plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
 plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
 
 % arco bitangente
-plotOrbit(at, et, i_f, OMf, omf_new, pi, 2*pi, 0.001, 'rad', 'b')
+plotOrbit(at, et, i_f, OMf, om_t, pi, 2*pi, 0.001, 'rad', 'b')
 
-[rrpt, vvpt] = par2car(at, et, i_f, OMf, omf_new, pi, "rad");
+[rrpt, vvpt] = par2car(at, et, i_f, OMf, om_t, pi, "rad");
 plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
-[rrat, vvat] = par2car(at, et, i_f, OMf, omf_new, 2*pi, "rad");
+[rrat, vvat] = par2car(at, et, i_f, OMf, om_t, 2*pi, "rad");
 plot3(rrat(1), rrat(2), rrat(3), 'k*');
 
 % finale
@@ -104,11 +104,6 @@ plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rr2(1), rr2(2), rr2(3), 'ko');
 hold off
-
-
-
-
-
 
 %%
 % %% plottare su grafici diversi 
