@@ -8,9 +8,10 @@ end
 
 % inclinazione (da 0 a pi)
 i = acos(n(3));
+k = [0 0 1]';
 
 % asse dei nodi
-N = cross([0 0 1]', n);
+N = cross(k, n)/(norm(cross(k, n)));
 
 % RAAN
 OM = acos(N(1));

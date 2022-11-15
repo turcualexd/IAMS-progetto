@@ -25,6 +25,6 @@ Terra_3D
 plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 1e-3, 'rad', 'r')
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 1e-3, 'rad', 'b')
 plotOrbit(at, et, i_t, OMt, omt, 0, 2*pi, 1e-3, 'rad', 'k')
-hold on
+
 plot3(rri(1), rri(2), rri(3), 'ko');
 plot3(rrf(1), rrf(2), rrf(3), 'ko');
