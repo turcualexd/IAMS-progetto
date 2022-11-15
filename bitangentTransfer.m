@@ -21,7 +21,7 @@ function [DeltaV1, DeltaV2, Deltat, om_f_new, om_t] = bitangentTransfer(a_i, e_i
 % DeltaV2       [1x1]       2nd maneuvre impulse                            [km/s]
 % Deltat        [1x1]       maneuvre time                                   [s]
 % om_f_new      [1x1]       new final pericenter anomaly                    [rad]
-% 
+% om_t          [1x1]       transfer pericenter anomaly                     [rad]
 % -----------------------------------------------------------------------------------
 
 % If mu is not assigned, the default value is set to Earth
