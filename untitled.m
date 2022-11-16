@@ -14,10 +14,17 @@ omf = 0.4299;
 thf = 0.3316;
 [rrf, vvf] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 
-%% 0: car2par, trovo dati orbita iniziale
+%% trasferimento
 
 [at, et, i_t, OMt, omt] = directTransfer(rri, rrf);
 
+%% velocità
+
+deltat = TOF(at, et, thi, thf)
+deltat_h = deltat/3600 %tempo in ore
+
+T = 2*pi*sqrt(at^3/398600)
+T_h = T/3600
 
 %% plot
 
@@ -25,7 +32,6 @@ thf = 0.3316;
 Terra_3D
 plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r') %bianco per vedere
 hold on
-
 plot3(rri(1), rri(2), rri(3), 'ko'); %bianco per vedere
 
 % trasferimento
@@ -33,8 +39,34 @@ plotOrbit(at, et, i_t, OMt, omt, 0, 2*pi, 1e-3, 'rad', 'k')
 
 % finale
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
-
 plot3(rrf(1), rrf(2), rrf(3), 'ko');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 % %% apo e peri iniziali, cambio piano e finali
