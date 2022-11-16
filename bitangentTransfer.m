@@ -1,4 +1,4 @@
-function [DeltaV1, DeltaV2, Deltat, om_f_new, om_t] = bitangentTransfer(a_i, e_i, a_f, e_f, type, om_i,  mu)
+function [DeltaV1, DeltaV2, Deltat, om_f_new, om_t, a_t, e_t] = bitangentTransfer(a_i, e_i, a_f, e_f, type, om_i,  mu)
 
 % Bitangent transfer for ellipctic orbits
 % 
@@ -54,6 +54,7 @@ switch type
         end
         
         a_t = (rpt + rat)/2;
+        e_t = abs(rat - rpt)/(rat + rpt);
 
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rpt) - (1/a_t)) - sqrt(( 2/rpi) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/raf) - (1/a_f)) - sqrt(( 2/rat) - 1/a_t));
@@ -73,6 +74,7 @@ switch type
         end
         
         a_t = (rat + rpt)/2;
+        e_t = abs(rat-rpt)/(rat+rpt);
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rat) - (1/a_t)) - sqrt(( 2/rai) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/rpf) - (1/a_f)) - sqrt(( 2/rpt) - 1/a_t));
 
@@ -91,6 +93,7 @@ switch type
         end
 
         a_t = (rat + rpt)/2;
+        e_t = abs(rat-rpt)/(rat+rpt);
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rpt) - (1/a_t)) - sqrt(( 2/rpi) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/rpf) - (1/a_f)) - sqrt(( 2/rat) - 1/a_t));
 
@@ -111,11 +114,12 @@ switch type
         end     
         
         a_t = (rat + rpt)/2;
+        e_t = abs(rat-rpt)/(rat+rpt);
         DeltaV1 = sqrt(mu) * ( sqrt( (2/rpt) - (1/a_t)) - sqrt(( 2/rai) - 1/a_i));
         DeltaV2 = sqrt(mu) * ( sqrt( (2/raf) - (1/a_f)) - sqrt(( 2/rat) - 1/a_t));
         
         om_f_new = om_i + pi;
-    end 
+end 
 
 Deltat = pi * (a_t^3 /mu)^(1/2);
 

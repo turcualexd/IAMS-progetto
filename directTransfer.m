@@ -1,4 +1,4 @@
-function [a, e, i, OM, om] = directTransfer(rri, rrf)
+function [a, e, i, OM, om, delta_t, delta_th] = directTransfer(rri, rrf)
 
 % calcolo il versore normale al piano orbitale (lo prendo direzionato come k)
 n = cross(rri, rrf) / norm(cross(rri, rrf));
@@ -44,3 +44,8 @@ e = (norm(rmax) - norm(rmin)) / (norm(rmin) - cos_thf * norm(rmax));
 
 % semiasse maggiore
 a = norm(rmin) / (1 - e);
+
+% trovo tempo di volo
+
+delta_th = acos(cos_thf);
+delta_t = TOF(a, e, -delta_th, 2*pi);
