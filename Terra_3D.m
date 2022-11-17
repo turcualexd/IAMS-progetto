@@ -27,7 +27,7 @@ end
 
 %%  Load the Earth image from a website
 %Earth_image = 'https://www.solarsystemscope.com/textures/download/8k_earth_daymap.jpg';
-Earth_image = 'Terra.jpg';
+Earth_image = 'Gatto.jpg';
 
 %% Figure
 

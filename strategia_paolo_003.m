@@ -26,15 +26,11 @@ rr_arrivo = rraf_norm * rrf/norm(rrf);
 [at, et, i_t, OMt, omt, delta_t, delta_th] = directTransfer(rri, rr_arrivo);
 [rrt, vvt] = par2car(at, et, i_t, OMt, omt, 0, 'rad');
 
-% mi metto su un'orbita circolare di caratteristiche i_t, OMt, omte raggio
-% rraf_norm
+% mi metto su un'orbita che mi porti sull'apocentro della finale
+% trovo apocentro dell'orbita finale
 
-r_circ = rraf_norm;
-e_circ = 0;
-%% cambio piano
-
-[~, om_t2, theta] = changeOrbitalPlane(r_circ, e_circ, i_t, OMt, omt, i_f, OMf);
-[rra, vvt] = par2car(r_circ, 0, i_f, OMf, om_t2, theta(2), 'rad'); %punto di cambio piano
+[rra, vva] = par2car(af,ef, i_f, OMf, omf, pi, 'rad');
+[at2, et2, i_t2, OMt2, omt2, delta_t2, delta_th2] = directTransfer(rrt, rra);
 
 %% plot
 Terra_3D
@@ -46,9 +42,10 @@ quiver3(0,0,0,0,0,1, 1e4);
 plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 1e-3, 'rad', 'r') % iniziale
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 1e-3, 'rad', 'b') % finale
 zoom
-plotOrbit(at, et, i_t, OMt, omt, -delta_th, 0, 1e-3, 'rad', 'k') % inserzione punto finale
-plotOrbit(r_circ, 0 , i_t, OMt, omt, 0, pi, 1e-3, 'rad', 'k') % circolarizzazione
-plotOrbit(r_circ, 0, i_f, OMf, om_t2, 0, 2*pi, 1e-3, 'rad', 'g') % orbita con cambio piano
+plotOrbit(at, et, i_t, OMt, omt, -delta_th, 0, 1e-3, 'rad', 'k') % inserzione T1
+plotOrbit(at2, et2, i_t2, OMt2, omt2, 0, 2*pi, 1e-3, 'rad', 'g') % inserzione T2
+
+
 
 plot3(rri(1), rri(2), rri(3), 'ko');
 plot3(rrf(1), rrf(2), rrf(3), 'ko');

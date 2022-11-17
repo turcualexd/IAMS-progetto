@@ -34,8 +34,7 @@ e_circ = 0;
 %% cambio piano
 
 [~, om_t2, theta] = changeOrbitalPlane(r_circ, e_circ, i_t, OMt, omt, i_f, OMf);
-[rra, vvt] = par2car(r_circ, 0, i_f, OMf, om_t2, theta(2), 'rad'); %punto di cambio piano
-
+[rra, vvt] = par2car(r_circ, 0, i_f, OMf, om_t2, theta(2), 'rad');
 %% plot
 Terra_3D
 
@@ -49,6 +48,7 @@ zoom
 plotOrbit(at, et, i_t, OMt, omt, -delta_th, 0, 1e-3, 'rad', 'k') % inserzione punto finale
 plotOrbit(r_circ, 0 , i_t, OMt, omt, 0, pi, 1e-3, 'rad', 'k') % circolarizzazione
 plotOrbit(r_circ, 0, i_f, OMf, om_t2, 0, 2*pi, 1e-3, 'rad', 'g') % orbita con cambio piano
+
 
 plot3(rri(1), rri(2), rri(3), 'ko');
 plot3(rrf(1), rrf(2), rrf(3), 'ko');
