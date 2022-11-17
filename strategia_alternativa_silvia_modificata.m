@@ -28,16 +28,17 @@ deltat1 = TOF(ai, ei, thi, theta_cp);
 
 
 %% trasferimento
-[rrpi, vvpi] = par2car(ai, ei, i_f, OMf, om2, 0, "rad");
-[rraf, vvaf] = par2car(af, ef, i_f, OMf, omf, pi, "rad");
 
-[at, et, it, OMt, omt, deltat2, delta_th,  deltaV2, deltaV3, deltavtot_t] = directTransfer(rrcp, rrf, vvcp, vvf);
-%[at, et, it, OMt, omt, deltat2, delta_th,  deltaV2, deltaV3, deltavtot_t] = directTransfer_apo(rrpi, rraf, vvpi, vvaf)
+[rrpf, vvpf] = par2car(af, ef, i_f, OMf, omf, pi, "rad");
+[rrai, vvai] = par2car(ai, ei, ii, OMi, om2, pi, "rad")
+
+[at, et, it, OMt, omt, deltat2, delta_th,  deltaV2, deltaV3, deltavtot_t] = directTransfer(rrai, rrpf, vvcp, vvpf);
+
 
 %%
 
 deltat_tot = deltat1 + deltat2;
-deltat_toth = deltat_tot/3600
+deltat_tot = deltat_tot/3600
 
 deltaV_tot = abs(DeltaV1) + abs(deltaV2) + abs(deltaV3)
 
@@ -65,28 +66,11 @@ plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
 plot3(rrf(1), rrf(2), rrf(3), 'ko');
 
 
-[rrpi, vvpi] = par2car(ai, ei, i_f, OMf, om2, 0, "rad");
-plot3(rrpi(1), rrpi(2), rrpi(3), 'b*');
-[rraf, vvaf] = par2car(af, ef, i_f, OMf, omf, pi, "rad");
-plot3(rraf(1), rraf(2), rraf(3), 'b*');
 
 
 
+[rrpf, vvpf] = par2car(af, ef, i_f, OMf, omf, pi, "rad");
+plot3(rrpf(1), rrpf(2), rrpf(3), 'b*');
 
-
-% %% apo e peri iniziali, cambio piano e finali
-% 
-% [rrpi, vvpi] = par2car(ai, ei, ii, OMi, omi, 0, "rad")
-% plot3(rrpi(1), rrpi(2), rrpi(3), 'b*');
-% [rrai, vvai] = par2car(ai, ei, ii, OMi, omi, pi, "rad")
-% plot3(rrai(1), rrai(2), rrai(3), 'b*');
-% 
-% [rrcp1, vvcp1] = par2car(ai, ei, i_f, OMf, om2, 0, "rad");
-% plot3(rrcp1(1), rrcp1(2), rrcp1(3), 'b*');
-% [rrcp2, vvcp2] = par2car(ai, ei, i_f, OMf, om2, pi, "rad");
-% plot3(rrcp2(1), rrcp2(2), rrcp2(3), 'b*');
-% 
-% [rrpf, vvpf] = par2car(af, ef, i_f, OMf, omf, 0, "rad")
-% plot3(rrpf(1), rrpf(2), rrpf(3), 'b*');
-% [rraf, vvaf] = par2car(af, ef, i_f, OMf, omf, pi, "rad")
-% plot3(rraf(1), rraf(2), rraf(3), 'b*');
+[rrai, vvai] = par2car(ai, ei, ii, OMi, om2, pi, "rad")
+plot3(rrai(1), rrai(2), rrai(3), 'r*');
