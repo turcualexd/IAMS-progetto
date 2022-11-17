@@ -79,7 +79,7 @@ hold on
 
 plot3(rr(1), rr(2), rr(3), 'ko');
 
-% cambio orbita
+% cambio orbita 
 plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad', 'm')
 
 [rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");

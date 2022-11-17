@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all
 
 %% dati iniziali
 rri = [1e4 2e4 1e4]';
@@ -14,14 +14,30 @@ omf = 0.4299;
 thf = 0.3316;
 [rrf, vvf] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 
+%% 2: changeorbitalplane, campio piano orbita
+% theta_cp è punto di cambio piano
+[DeltaV1, om2, theta_cp] = changeOrbitalPlane(ai, ei, ii, OMi, omi, i_f, OMf);
+
+% prendo il delta v minore
+DeltaV1 = DeltaV1(2);
+theta_cp = theta_cp(2);
+% tempo di attesa 1: da theta iniziale a theta di cambio piano
+deltat1 = TOF(ai, ei, thi, theta_cp);
+
+[rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
+
+
 %% trasferimento
 
-[at, et, it, OMt, omt, delta_t, delta_th] = directTransfer(rri, rrf);
+[at, et, it, OMt, omt, deltat2, delta_th,  deltaV2, deltaV3, deltavtot_t] = directTransfer(rrcp, rrf, vvcp, vvf);
 
-%% velocità
 
-deltat_t_h = delta_t/3600 %tempo in ore
+%%
 
+deltat_tot = deltat1 + deltat2;
+deltat_tot = deltat_tot/3600
+
+deltaV_tot = abs(DeltaV1) + abs(deltaV2) + abs(deltaV3)
 
 %% plot
 
@@ -31,33 +47,20 @@ plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r') %bianco per vedere
 hold on
 plot3(rri(1), rri(2), rri(3), 'ko'); %bianco per vedere
 
+% cambio orbita 
+plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad', 'm')
+
+[rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
+plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
+
+
 % trasferimento
 plotOrbit(at, et, it, OMt, omt, 0, 2*pi, 1e-3, 'rad', 'k')
 
 % finale
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
+[rrf, vvf] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rrf(1), rrf(2), rrf(3), 'ko');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
