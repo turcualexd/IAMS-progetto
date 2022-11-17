@@ -1,4 +1,4 @@
-function [a, e, i, OM, om, delta_t, delta_th,  deltav1, deltav2] = directTransfer(rri, rrf, vvi, vvf)
+function [a, e, i, OM, om, delta_t, delta_th,  deltav1, deltav2, deltavtot] = directTransfer(rri, rrf, vvi, vvf)
 
 % calcolo il versore normale al piano orbitale (lo prendo direzionato come k)
 n = cross(rri, rrf) / norm(cross(rri, rrf));
@@ -50,10 +50,11 @@ a = norm(rmin) / (1 - e);
 delta_th = acos(cos_thf);
 delta_t = TOF(a, e, -delta_th, 2*pi);
 
-if nargiin > 2
+if nargin > 2
     delta_v1_vect = vv_1 - vvi;
     delta_v2_vect = vv_2 - vvf;
 
     deltav1 = norm(delta_v1_vect);
     deltav2 = norma(delta_v2_vect);
+    deltavtot = deltav1 + deltav2;
 end

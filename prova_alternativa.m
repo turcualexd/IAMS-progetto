@@ -17,7 +17,7 @@ thf = 0.3316;
 [ai, ei, i_i, OMi, omi, thi] = car2par(rri, vvi, 'rad');
 
 %% directTransfer
-[at, et, i_t, OMt, omt, delta_t] = directTransfer(rri, rrf);
+[at, et, i_t, OMt, omt, delta_t, deltav1, deltav2] = directTransfer(rri, rrf, vvi, vvf);
 
 %% plot
 Terra_3D
