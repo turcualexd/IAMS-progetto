@@ -50,11 +50,14 @@ a = norm(rmin) / (1 - e);
 delta_th = acos(cos_thf);
 delta_t = TOF(a, e, -delta_th, 2*pi);
 
+[~, vv_1] = par2car(a, e, i, OM, om, -delta_th, 'rad');
+[~, vv_2] = par2car(a, e, i, OM, om, 0, 'rad');
+
 if nargin > 2
     delta_v1_vect = vv_1 - vvi;
     delta_v2_vect = vv_2 - vvf;
 
     deltav1 = norm(delta_v1_vect);
-    deltav2 = norma(delta_v2_vect);
+    deltav2 = norm(delta_v2_vect);
     deltavtot = deltav1 + deltav2;
 end
