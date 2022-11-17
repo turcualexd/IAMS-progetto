@@ -24,6 +24,10 @@ if nargin == 4
     mu = 3.986e5;
 end
 
+if th1 > th2
+    th1 = th1 - 2*pi;
+end
+
 E1 = 2*atan(sqrt((1-e)/(1+e))*tan(th1/2));
 E2 = 2*atan(sqrt((1-e)/(1+e))*tan(th2/2));
 
@@ -37,6 +41,6 @@ deltat = t2 - t1;
 T = 2*pi*sqrt(a^3/mu);
 
 if th2 < th1
-    deltat = deltat + T;
+    deltat = T + deltat;
 end
 
