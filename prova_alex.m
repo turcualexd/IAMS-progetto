@@ -17,18 +17,20 @@ thf = 0.3316;
 [ai, ei, i_i, OMi, omi, thi] = car2par(rri, vvi, 'rad');
 
 %% directTransfer
-[at, et, i_t, OMt, omt] = directTransfer_opt(rri, rrf);
+[at, et, i_t, OMt, omt, deltaV] = directTransfer_opt(rri, rrf, vvi, vvf);
 
 figure
-plot(omt, et)
-hold on
-plot(omt, 1)
+plot(omt, deltaV)
+
+[~, k] = min(deltaV);
+deltaV_min = deltaV(k)
 
 %% plot
-for i = 1:length(omt)
-    Terra_3D
+Terra_3D
 
-    plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 1e-3, 'rad', 'r')
-    plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 1e-3, 'rad', 'b')
-    plotOrbit(at(i), et(i), i_t, OMt, omt(i), 0, 2*pi, 1e-3, 'rad', 'k')
-end
+plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 1e-3, 'rad', 'r')
+plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 1e-3, 'rad', 'b')
+plotOrbit(at(k), et(k), i_t, OMt, omt(k), 0, 2*pi, 1e-3, 'rad', 'k')
+
+plot3(rri(1), rri(2), rri(3), 'ko');
+plot3(rrf(1), rrf(2), rrf(3), 'ko');

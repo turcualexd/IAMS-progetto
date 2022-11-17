@@ -1,4 +1,4 @@
-function [a, e, i, OM, om] = directTransfer_opt(rri, rrf)
+function [a, e, i, OM, om, deltaV] = directTransfer_opt(rri, rrf, vvi, vvf)
 
 ri = norm(rri);
 rf = norm(rrf);
@@ -78,7 +78,7 @@ end
 omf = omf - 1e-5;
 
 % vario om come parametro
-om = linspace(omi, omf, 100);
+om = linspace(omi, omf, 10000);
 thi = NaN(length(om), 1);
 thf = NaN(length(om), 1);
 
@@ -99,3 +99,15 @@ end
 e = (ri - rf) ./ (rf .* cos(thf) - ri .* cos(thi));
 
 a = ri .* (1 + e .* cos(thi)) ./ (1 - e.^2);
+
+deltaV = nan(length(om), 1);
+
+for k = 1:length(om)
+    [~, vv1] = par2car(a(k), e(k), i, OM, om(k), thi(k), 'rad');
+    [~, vv2] = par2car(a(k), e(k), i, OM, om(k), thf(k), 'rad');
+    deltav1_vect = vv1 - vvi;
+    deltav2_vect = vvf - vv2;
+    deltav1 = norm(deltav1_vect);
+    deltav2 = norm(deltav2_vect);
+    deltaV(k) = deltav1 + deltav2;
+end
