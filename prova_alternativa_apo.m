@@ -17,9 +17,12 @@ thf = 0.3316;
 [ai, ei, i_i, OMi, omi, thi] = car2par(rri, vvi, 'rad');
 
 %% directTransfer
-[at, et, i_t, OMt, omt, delta_t,delta_th, deltav1, deltav2, deltavtot] = directTransfer_apo(rri, rrf, vvi, vvf);
+[at, et, i_t, OMt, omt, delta_t, delta_th, deltav1, deltav2, deltavtot] = directTransfer_apo(rri, rrf, vvi, vvf);
 
 %% plot
+deltavtot
+delta_t
+
 Terra_3D
 
 plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 1e-3, 'rad', 'r')

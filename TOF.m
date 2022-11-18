@@ -24,31 +24,31 @@ if nargin == 4
     mu = 3.986e5;
 end
 
-E1 = 2*atan(sqrt((1-e)/(1+e))*tan(th1/2));
-E2 = 2*atan(sqrt((1-e)/(1+e))*tan(th2/2));
+E1 = 2 .* atan(sqrt((1 - e) ./ (1 + e)) .* tan(th1 ./ 2));
+E2 = 2 .* atan(sqrt((1 - e) ./ (1 + e)) .* tan(th2 ./ 2));
 
-if E1 < 0
-    E1 = E1 + 2*pi;
+for k = 1:length(a)
+    if E1(k) < 0
+        E1(k) = E1(k) + 2*pi;
+    end
+    
+    if E2(k) < 0
+        E2(k) = E2(k) + 2*pi;
+    end
 end
 
-if E2 < 0
-    E2 = E2 + 2*pi;
+n = sqrt(mu ./ a.^3);
+
+t1 = (E1 - e .* sin(E1)) ./ n;
+t2 = (E2 - e .* sin(E2)) ./ n;
+
+T = 2 * pi * sqrt(a.^3 / mu);
+
+deltat = nan(1, length(a));
+for k = 1:length(a)
+    if t1(k) > t2(k)
+        deltat(k) = T(k) - t1(k) + t2(k);
+    else 
+        deltat(k) = t2(k) - t1(k);
+    end
 end
-
-n = sqrt(mu/(a^3));
-
-t1 = (E1 - e * sin(E1))/n;
-t2 = (E2 - e * sin(E2))/n;
-
-T = 2*pi*sqrt(a^3/mu);
-
-if t1 > t2
-    deltat = T - t1 + t2;
-else 
-    deltat = t2 - t1;
-end
-
-
-
-
-

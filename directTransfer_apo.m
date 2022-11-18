@@ -47,15 +47,15 @@ a = norm(rmax) / (1 + e);
 
 % trovo tempo di volo
 
-delta_th = abs(acos(cos_thi));
-delta_t = TOF(a, e, pi, -pi + delta_th);
+delta_th = acos(cos_thi);
+delta_t = TOF(a, e, pi, 2*pi - delta_th);
 
 [~, vv_1] = par2car(a, e, i, OM, om, pi, 'rad');
-[~, vv_2] = par2car(a, e, i, OM, om, pi + delta_th, 'rad');
+[~, vv_2] = par2car(a, e, i, OM, om, 2*pi - delta_th, 'rad');
 
 if nargin > 2
     delta_v1_vect = vv_1 - vvi;
-    delta_v2_vect = vv_2 - vvf;
+    delta_v2_vect = vvf - vv_2;
 
     deltav1 = norm(delta_v1_vect);
     deltav2 = norm(delta_v2_vect);
