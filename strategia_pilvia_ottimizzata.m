@@ -1,8 +1,8 @@
 clear; clc; close all
 
 %% dati iniziali
-rri = [1e4 2e4 1e4]';
-vvi = [-2.5 -2.5 3]';
+rri = [-1169.7791 -8344.5289 977.8062 ]';
+vvi = [4.2770 -1.9310 -4.9330 ]';
 [ai, ei, ii, OMi, omi, thi] = car2par(rri, vvi, 'rad');
 
 %% dati finali
