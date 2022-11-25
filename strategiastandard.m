@@ -31,14 +31,14 @@ deltat1 = TOF(ai, ei, thi, theta_cp);
 
 %% 4: changePericenterArg, cambio argomento pericentro
 [DeltaV2, theta_cwi, theta_cwf] = changePericenterArg(ai, ei, om2, omf);
-theta_cwi = theta_cwi(2);
-theta_cwf = theta_cwf(2);
+theta_cwi = theta_cwi(1);
+theta_cwf = theta_cwf(1);
 deltat2 = TOF(ai, ei, theta_cp, theta_cwi);
 % decidere quale theta considerare, non incide su delta v ma incide sul
 % tempo e su qualcosa dopo!!!!!!
 %
 % in teoria ho risolto.
-% ho preso il theta 2, quindi quello in alto (seconda componente dei
+% ho preso il theta 1 quindi quello in alto (seconda componente dei
 % vettori) e ho considerato il valore iniziale per il tempo 2 e il valore
 % finale per il delta tempo 3 
 
