@@ -23,8 +23,12 @@ function [a, e, i, OM, om, th] = car2par(rr, vv, unit, mu)
 % -----------------------------------------------------------------------------------
 
 % If mu is not assigned, the default value is set to Earth
-if nargin == 3
-    mu = 3.986 * 10^5;
+switch nargin
+    case 2
+        unit = "rad";
+        mu = 3.986 * 10^5;
+    case 3
+        mu = 3.986 * 10^5;
 end
 
 % -------------------------------------------------------------

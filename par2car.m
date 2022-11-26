@@ -23,8 +23,12 @@ function [rr, vv] = par2car(a, e, i, OM, om, th, unit, mu)
 % -----------------------------------------------------------------------------------
 
 % If mu is not assigned, the default value is set to Earth
-if nargin == 7
-    mu = 3.986 * 10^5;
+switch nargin
+    case 6
+        unit = "rad";
+        mu = 3.986 * 10^5;
+    case 7
+        mu = 3.986 * 10^5;
 end
 
 % If angles are in degrees, converts in radians
