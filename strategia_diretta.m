@@ -19,12 +19,12 @@ thf = 0.3316;
 [rri, vvi] = par2car(ai, ei, i_i, OMi, omi, thi);
 
 %% Utilizzo directTransfer_opt per trovare tutte le orbite possibili
-[at, et, i_t, OMt, omt, deltaV, deltaT, th1, th2] = directTransfer_opt(rri, rrf, vvi, vvf, 100, 5, 1e-4);
+[at, et, i_t, OMt, omt, deltaV, deltaT, th1, th2] = directTransfer_opt(rri, rrf, vvi, vvf, 1000);
 
 %% Caratterizzo orbita con deltaV minore
 [~, k] = min(deltaV);
 deltaV_min = deltaV(k)
-deltaT_min = deltaT(k) / 60
+deltaT_min = deltaT(k) / 60^2
 
 th1_min = th1(k);
 th2_min = th2(k);

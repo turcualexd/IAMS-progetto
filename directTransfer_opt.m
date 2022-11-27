@@ -4,14 +4,14 @@ function [a, e, i, OM, om, deltaV, deltaT, thi, thf] = directTransfer_opt(rri, r
 %% Iterazioni iniziali e tolleranza di default
 switch nargin
     case 4
-        dim = 1000;
-        it_iniziali = 100;
-        toll = 1e-6;
+        dim = 100;
+        it_iniziali = 50;
+        toll = 1e-4;
     case 5
-        it_iniziali = 100;
-        toll = 1e-6;
+        it_iniziali = 50;
+        toll = 1e-4;
     case 6
-        toll = 1e-6;
+        toll = 1e-4;
 end
 
 %% Scrivo i moduli dei vettori
