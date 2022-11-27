@@ -65,7 +65,7 @@ omf = nan;
 
 % Inizio con il cercare omi, che è il valore per cui l'eccentricità è più
 % vicina a 1 e con pendenza negativa
-for k = 1 : length(om_vect) - 1
+for k = 1 : it_iniziali - 1
     if e_vect(k) >= 1 && e_vect(k+1) < 1 && e_vect(k+1) > 0
         omi = om_vect(k+1);
         ei = e_vect(k+1);
@@ -81,7 +81,7 @@ end
 
 % Ora trovo omf, che è il valore per cui l'eccentricità è più vicina a 1 e
 % con pendenza positiva
-for k = 1 : length(om_vect) - 1
+for k = 1 : it_iniziali - 1
     if e_vect(k) < 1 && e_vect(k+1) >= 1 && e_vect(k) > 0
         omf = om_vect(k);
         ef = e_vect(k);
