@@ -146,8 +146,8 @@ if isnan(th1_fixed) && isnan(th2_fixed)
 end
 
 th_range = linspace(0, 2*pi, risol_angolare);
-
 deltaV_tot = realmax;
+
 for k1 = 1 : risol_angolare                % giro su orbita iniziale
 
     % aggiorno la waitbar
@@ -225,27 +225,13 @@ deltaT_tot = t_trasf + TOF(ai, ei, thi, th1_iniziale) + TOF(af, ef, th2_finale, 
 
 %% Plot
 if plot
-    thi_p = thi;
-    if thi > th1_iniziale
-        thi_p = thi_p - 2*pi;
-    end
-    
-    th2_p = th2_finale;
-    if th2_finale > thf
-        th2_p = th2_p - 2*pi;
-    end
-    
-    th1_trasf_p = th1_trasf;
-    if th1_trasf > th2_trasf
-        th1_trasf_p = th1_trasf_p - 2*pi;
-    end
     
     % plotto orbita
     Terra_3D
     
-    plotOrbit(ai, ei, i_i, OMi, omi, thi_p, th1_iniziale, 1e-3, 'rad', 'r')
-    plotOrbit(at, et, i_t, OMt, omt, th1_trasf_p, th2_trasf, 1e-3, 'rad', 'green')
-    plotOrbit(af, ef, i_f, OMf, omf, th2_p, thf, 1e-3, 'rad', 'b')
+    plotOrbit(ai, ei, i_i, OMi, omi, thi, th1_iniziale, 1e-3, 'rad', 'r')
+    plotOrbit(at, et, i_t, OMt, omt, th1_trasf, th2_trasf, 1e-3, 'rad', 'green')
+    plotOrbit(af, ef, i_f, OMf, omf, th2_finale, thf, 1e-3, 'rad', 'b')
     
     plot3(rri(1), rri(2), rri(3), 'ko');
     plot3(rrf(1), rrf(2), rrf(3), 'ko');
@@ -255,4 +241,5 @@ if plot
     
     title('Plot di secante\_ottimale')
     legend('', 'Orbita iniziale', 'Orbita di trasferimento', 'Orbita finale', 'Punti iniziale e finale', '', 'Punti di traferimento')
+
 end

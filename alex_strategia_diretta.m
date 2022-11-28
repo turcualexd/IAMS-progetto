@@ -13,11 +13,11 @@ omf = 0.4299;
 thf = 0.3316;
 
 %% Conversioni
-[ai, ei, i_i, OMi, omi, thi] = car2par(rri, vvi);
 [rrf, vvf] = par2car(af, ef, i_f, OMf, omf, thf);
+[ai, ei, i_i, OMi, omi, thi] = car2par(rri, vvi);
 
-%% Utilizzo secante ottimale con partenza coincidente al punto iniziale
-[at, et, i_t, OMt, omt, th1_trasf, th2_trasf, th1_iniziale, th2_finale, deltaV_tot, deltaT_tot, rr1, rr2] = secante_ottimale(rri, vvi, rrf, vvf, thi, nan, true, 100, 1000);
+%% Utilizzo secante_ottimale con punti di manovra coincidenti a punti iniziale e finale
+[at, et, i_t, OMt, omt, th1_trasf, th2_trasf, th1_iniziale, th2_finale, deltaV_tot, deltaT_tot, rr1, rr2] = secante_ottimale(rri, vvi, rrf, vvf, thi, thf, true);
 
 deltaV_tot
 deltaT_tot_h = deltaT_tot / 60^2

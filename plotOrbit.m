@@ -6,6 +6,10 @@ if unit == "deg"
     dth = deg2rad(dth);
 end
 
+if thi > thf
+    thi = thi - 2*pi;
+end
+
 th = [thi : dth : thf]';
 
 rr = [];
