@@ -48,7 +48,7 @@ deltat3 = TOF(ai, ei, theta_cwf, 0);
 
 %% biellittica
 
-rat = 80000;
+rat = 20000;
 [DeltaV3, DeltaV4, DeltaV5, Deltat1, Deltat2] = biellipticTransfer(ai, ei, af, ef, rat);
 
 % t1
