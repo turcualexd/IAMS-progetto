@@ -21,41 +21,51 @@ vel = [];
 
 % faccio fondere il pc
 
-% ee = 0:1e-1:1;
-aa = ai:1e2:af;
-aaa = aa(10):1e1:aa(12);
-aaaa = aaa(2):1:aaa(4);
-aaaaa = aaaa(8):1e-1:aaaa(10);
-valore_ottimale = aaaaa(11);
+ee = 0:2e-1:1;
+aa = ai:1e3:af;
 minimo = [1e10 0 0 0 0];
 
+for j = 1:length(aa)
+    
+    raf = aa(j);
 
+    for k = 1:length(ee)
 
-    deltav = 0;
-    deltat = 0;
-    raf = aaaaa(11);
+        ec = ee(k);
 
-    ec = 0;
-    deltat1 = TOF(ai, ei, thi, 2*pi); % arrivo al punto di trasferimento
+        deltav = 0;
+        deltat = 0;
+       
+        deltat1 = TOF(ai, ei, thi, 2*pi); % arrivo al punto di trasferimento
+        
+        [DeltaV1, DeltaV2, Deltat, om_f_new, om_t, a_t, e_t] = bitangentTransfer(ai, ei, raf, ec, 'pa' , omi);
+        
+        deltat2 = TOF(a_t, e_t, 0, pi); % questo va messo a posto, non arrivo a pi ma al punto definito dopo
+        
+        deltav = deltav + abs(DeltaV1);
+        deltat = deltat + deltat1;
+        
+        %% cerco secante ottimale per arrivare sull'orbita finale
+        
+        [rr1, vv1] = par2car(a_t, e_t, ii, OMi, om_t, 0); % punto di arrivo dell'orbita bitangente
+        
+        [at_s, et_s, i_t_s, OMt_s, omt_s, th1_trasf, th2_trasf, th1_iniziale, th2_finale, deltaV_tot, deltaT_tot, rr1_s, rr2_s] = secante_ottimale(rr1, vv1, rrf, vvf, nan, nan, 0);
+        
+        deltav = deltav + deltaV_tot;
+        deltat = deltat + deltaT_tot;
     
-    [DeltaV1, DeltaV2, Deltat, om_f_new, om_t, a_t, e_t] = bitangentTransfer(ai, ei, raf, ec, 'pa' , omi);
+        vel = [vel; deltav];
     
-    deltat2 = TOF(a_t, e_t, 0, pi); % questo va messo a posto, non arrivo a pi ma al punto definito dopo
-    
-    deltav = deltav + abs(DeltaV1);
-    deltat = deltat + deltat1;
-    
-    %% cerco secante ottimale per arrivare sull'orbita finale
-    
-    [rr1, vv1] = par2car(a_t, e_t, ii, OMi, om_t, 0); % punto di arrivo dell'orbita bitangente
-    
-    [at_s, et_s, i_t_s, OMt_s, omt_s, th1_trasf, th2_trasf, th1_iniziale, th2_finale, deltaV_tot, deltaT_tot, rr1_s, rr2_s] = secante_ottimale(rr1, vv1, rrf, vvf, nan, nan, 1);
-    
-    deltav_tot = deltav + deltaV_tot
-    deltat_ore = (deltat + deltaT_tot) / 3600
+        if deltav < minimo(1,1)
+            minimo = [deltav aa(j) j ee(k) k];
+        end
 
-    vel = [vel; deltav];   
-
+        if length(vel) > 1 && deltav > vel(end -1)
+            k = k + 1;
+        end
+    end
+       
+end
 %% plot
 
 %Terra_3D
