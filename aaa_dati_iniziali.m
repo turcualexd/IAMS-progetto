@@ -22,4 +22,4 @@ plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b')
 plot3(rri(1), rri(2), rri(3), 'ko');
 plot3(rrf(1), rrf(2), rrf(3), 'ko');
 
-legend('', 'Orbita iniziale', 'Orbita finale', 'Punti di manovra')
+legend('', 'Orbita iniziale', 'Orbita finale', 'Punti iniziale e finale')
