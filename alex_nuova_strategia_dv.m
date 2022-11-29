@@ -1,15 +1,9 @@
-clear; clc; close all
+clear, clc, close all
 
-%% dati iniziali
-rr = [-1169.7791 -8344.5289 977.8062 ]';
-vv = [4.2770 -1.9310 -4.9330 ]';
-[ai, ei, ii, OMi, omi, thi] = car2par(rr, vv, 'rad');
-Terra_3D
-plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
-hold on
-plot3(rr(1), rr(2), rr(3), 'ko');
+%% Dati
+rri = [-1169.7791 -8344.5289 977.8062]';
+vvi = [4.2770 -1.9310 -4.9330 ]';
 
-%% dati finali
 af = 10860;
 ef = 0.2332;
 i_f = 0.5284;
@@ -17,63 +11,65 @@ OMf = 3.0230;
 omf = 0.4299;
 thf = 0.3316;
 
-plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
-[rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
-plot3(rr2(1), rr2(2), rr2(3), 'ko');
+mu = 398600;
 
+%% Conversioni
+[ai, ei, i_i, OMi, omi, thi] = car2par(rri, vvi);
+[rrf, vvf] = par2car(af, ef, i_f, OMf, omf, thf);
 
-%% raggiungere pericentro iniziale 
+%% Bitangente PA fino a distanza apocentro finale, circolarizzazione
 
-deltaT1 = TOF(ai, ei, thi, 2*pi);
+raf = af  * (1 + ef); % dev'essere uguale a rat e raggio della circolare su cui ci inseriamo
+e2 = 0; % eccentricità orbita circolare con raggio raf
 
-%% bitangente PA fino a distanza apocentro finale, circolarizzazione
+[DeltaV1, DeltaV2, deltaT2, ~, omt, at, et] = bitangentTransfer(ai, ei, raf, e2, 'pa', omi);
 
-raf = af*(ef+1); % dev'essere uguale a rat e raggio della circolare su cui ci inseriamo
-e_2 = 0; % eccentricità orbita circolare con raggio raf
+[rrpt, vvpt] = par2car(at, et, i_i, OMi, omt, 0);
+[rrat, vvat] = par2car(at, et, i_i, OMi, omt, pi);
 
-[DeltaV1, DeltaV2, deltaT2, om_f_new, omt, at, et] = bitangentTransfer(ai, ei, raf, e_2, 'pa', omi);
+%% Cambio piano
 
-% arco bitangente
-plotOrbit(at, et, ii, OMi, omt, 0, pi, 0.001, 'rad', 'b')
+[deltaV3, om2, theta_cp] = changeOrbitalPlane(raf, e2, i_i, OMi, omi, i_f, OMf);
 
-[rrpt, vvpt] = par2car(at, et, ii, OMi, omt, 0, "rad");
-plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
-[rrat, vvat] = par2car(at, et, ii, OMi, omt, pi, "rad");
-plot3(rrat(1), rrat(2), rrat(3), 'k*');
-
-plotOrbit(raf, e_2, ii, OMi, omt, 0, 2*pi, 0.001, 'rad', 'k')
-
-%% cambio piano
-
-% theta_cp è punto di cambio piano
-[DeltaV3, om2, theta_cp] = changeOrbitalPlane(raf, e_2, ii, OMi, omi, i_f, OMf);
 % prendo il delta v minore
-DeltaV3 = DeltaV3(2);
+deltaV3 = deltaV3(2);
 theta_cp = theta_cp(2);
 
-% tempo di attesa 1: da theta iniziale a theta di cambio piano
-deltaT3 = TOF(raf, e_2, pi, theta_cp);
+[rrcp, vvcp] = par2car(raf, e2, i_f, OMf, om2, theta_cp, "rad");
 
-plotOrbit(raf, e_2, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad', 'm')
-[rrcp, vvcp] = par2car(raf, e_2, i_f, OMf, om2, theta_cp, "rad");
-plot3(rrcp(1), rrcp(2), rrcp(3), 'r*');
+%% Velocità
+% deltaV1 da bitangentTransfer
+% deltaV2 da bitangentTransfer
+% deltaV3 da changeOrbitalPlane
+deltaV4 = sqrt(2*mu*((1/raf)-(1/(2*af)))) - sqrt(mu/raf);
 
-%% raggiungo apocentro finale sulla circolare cambiata di piano
+deltaV_tot = abs(DeltaV1) + abs(DeltaV2) + abs(deltaV3) + abs(deltaV4)
 
-deltaT4 = TOF(raf, e_2, theta_cp, pi);
-
-%% entro sull'orbita finale e raggiungo il punto finale
-mu = 398600;
-DeltaV4 = sqrt(2*mu*((1/raf)-(1/(2*af)))) - sqrt(mu/raf);
-
+%% Tempo
+deltaT1 = TOF(ai, ei, thi, 2*pi);
+% deltaT2 da bitangentTransfer
+deltaT3 = TOF(raf, e2, pi, theta_cp);
+deltaT4 = TOF(raf, e2, theta_cp, pi);
 deltaT5 = TOF(af, ef, pi, thf);
 
+deltaT_tot = deltaT1 + deltaT2 + deltaT3 + deltaT4 + deltaT5; % tempo in secondi
+
+deltaT_tot_h = deltaT_tot / 60^2 % tempo in ore
+
+%% Plot
+Terra_3D
+plotOrbit(ai, ei, i_i, OMi, omi, thi, 0, 0.001, 'rad', 'r')
 
 
-%% velocità totali e tempi totali
+plotOrbit(at, et, i_i, OMi, omt, 0, pi, 0.001, 'rad', 'b')                  % bitangente
+plotOrbit(raf, e2, i_i, OMi, omt, pi, theta_cp, 0.001, 'rad', 'k')          % circolare
+plotOrbit(raf, e2, i_f, OMf, om2, theta_cp, pi + omf - om2, 0.001, 'rad', 'm')    % cambio piano
 
-DeltaV_tot = abs(DeltaV1) + abs(DeltaV2) + abs(DeltaV3) + abs(DeltaV4);
+plotOrbit(af, ef, i_f, OMf, omf, pi, thf, 0.001, 'rad', 'g')
 
-deltat_tot = deltaT1 + deltaT2 + deltaT3 + deltaT4 + deltaT5; %tempo in secondi
+plot3(rri(1), rri(2), rri(3), 'ko');
+plot3(rrf(1), rrf(2), rrf(3), 'ko');
 
-deltat_tot_h = deltat_tot/3600 %tempo in ore
+plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
+plot3(rrat(1), rrat(2), rrat(3), 'k*');
+plot3(rrcp(1), rrcp(2), rrcp(3), 'r*');
