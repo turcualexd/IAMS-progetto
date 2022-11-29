@@ -72,7 +72,7 @@ plot3(rrat(1), rrat(2), rrat(3), 'k*');
 
 %% velocità totali e tempi totali
 
-DeltaV_tot = abs(DeltaV1) + abs(DeltaV2) + abs(DeltaV3) %+ abs(DeltaV4) + abs(DeltaV5);
+DeltaV_tot = abs(DeltaV1) + abs(DeltaV2) + abs(DeltaV3) + abs(DeltaV4) + abs(DeltaV5);
 
 % deltat_tot = deltaT1 + deltaT2 + deltaT3 + deltaT4 + deltaT5; %tempo in secondi
 % 

@@ -25,7 +25,7 @@ plot3(rr2(1), rr2(2), rr2(3), 'ko');
 
 deltaT1 = TOF(ai, ei, thi, 2*pi);
 
-%% bitangente PA fino a distanza apocentro finale, circolarizzazione
+%% trasferimento su ellittica con rpi ma grande
 
 rp1 = ai*(1-ei);
 rp2 = rp1;
@@ -41,8 +41,6 @@ plotOrbit(a2, e2, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'b')
 %% raggiungo apocentro dell'orbita ellittica 2
 
 deltaT2 = TOF(a2, e2, 0, pi);
-
-%% trasferimento AP da apocentro a orbita circolare con raggio grande 
 
 %% bitangente PA fino a distanza a scelta, circolarizzazione
 
