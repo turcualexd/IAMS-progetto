@@ -28,7 +28,7 @@ deltaT1 = TOF(ai, ei, thi, 2*pi);
 
 %% bitangente PA fino a distanza a scelta, circolarizzazione
 
-rc = 20000; % dev'essere uguale a rat e raggio della circolare su cui ci inseriamo
+rc = 50000; % dev'essere uguale a rat e raggio della circolare su cui ci inseriamo
 e_2 = 0; % eccentricità orbita circolare con raggio raf
 
 [DeltaV1, DeltaV2, deltaT2, om_f_new, omt, at, et] = bitangentTransfer(ai, ei, rc, e_2, 'pa', omi);
