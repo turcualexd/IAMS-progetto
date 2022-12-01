@@ -35,7 +35,7 @@ vv = linspace(0, vel_fuga, n);
 % ylabel('a')
 
 %% Cambio piano
-deltaV_cp = @(alpha, deltaV) 2 * sqrt(abs( mu ./ a(deltaV) .* (1 - e(deltaV)) ./ 1 + e(deltaV) )) .* sin(alpha / 2);
+deltaV_cp = @(alpha, deltaV) 2 * sqrt(abs( mu ./ a(deltaV) .* (1 - e(deltaV)) ./ (1 + e(deltaV)) )) .* sin(alpha / 2);
 deltaV_tot = @(alpha, deltaV) 2*deltaV + deltaV_cp(alpha, deltaV);
 
 alpha = linspace(0, pi, 1000);
