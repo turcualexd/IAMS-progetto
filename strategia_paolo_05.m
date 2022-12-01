@@ -51,8 +51,8 @@ minimo = [1e10 0 0 0 0];
     
     [at_s, et_s, i_t_s, OMt_s, omt_s, th1_trasf, th2_trasf, th1_iniziale, th2_finale, deltaV_tot, deltaT_tot, rr1_s, rr2_s] = secante_ottimale(rr1, vv1, rrf, vvf, nan, nan, 1);
     
-    deltav_tot = deltav + deltaV_tot
-    deltat_ore = (deltat + deltaT_tot) / 3600
+    deltav_tot = deltav + deltaV_tot;
+    deltat_ore = (deltat + deltaT_tot) / 3600;
 
     vel = [vel; deltav];   
 
