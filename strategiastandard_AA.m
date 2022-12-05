@@ -29,22 +29,22 @@ deltaT1 = TOF(ai, ei, thi, 2*pi);
 %% bitangente AA fino a distanza apocentro finale, circolarizzazione
 
 
-[DeltaV1, DeltaV2, deltaT2, om_t, omt, at, et] = bitangentTransfer(ai, ei, af, ef, 'aa', omi);
+[DeltaV1, DeltaV2, deltaT2, om_f, omt, at, et] = bitangentTransfer(ai, ei, af, ef, 'aa', omi);
 
 % arco bitangente
-plotOrbit(at, et, ii, OMi, om_t, pi, 3*pi, 0.001, 'rad', 'b')
+plotOrbit(at, et, ii, OMi, om_f, pi, 3*pi, 0.001, 'rad', 'b')
 
-[rrpt, vvpt] = par2car(at, et, ii, OMi, om_t, pi, "rad");
+[rrpt, vvpt] = par2car(at, et, ii, OMi, om_f, pi, "rad");
 plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
-[rrat, vvat] = par2car(at, et, ii, OMi, om_t, 3*pi, "rad");
+[rrat, vvat] = par2car(at, et, ii, OMi, om_f, 3*pi, "rad");
 plot3(rrat(1), rrat(2), rrat(3), 'k*');
 
-plotOrbit(af, ef, ii, OMi, om_t, 0, 2*pi, 0.001, 'rad', 'k')
+plotOrbit(af, ef, ii, OMi, om_f, 0, 2*pi, 0.001, 'rad', 'k')
 
 %% cambio piano
 
 % theta_cp è punto di cambio piano
-[DeltaV3, om2, theta_cp] = changeOrbitalPlane(af, ef, ii, OMi, om_t, i_f, OMf);
+[DeltaV3, om2, theta_cp] = changeOrbitalPlane(af, ef, ii, OMi, om_f, i_f, OMf);
 % prendo il delta v minore
 DeltaV3 = DeltaV3(2);
 theta_cp = theta_cp(2);
