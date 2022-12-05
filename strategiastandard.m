@@ -34,13 +34,7 @@ deltat1 = TOF(ai, ei, thi, theta_cp);
 theta_cwi = theta_cwi(1);
 theta_cwf = theta_cwf(1);
 deltat2 = TOF(ai, ei, theta_cp, theta_cwi);
-% decidere quale theta considerare, non incide su delta v ma incide sul
-% tempo e su qualcosa dopo!!!!!!
-%
-% in teoria ho risolto.
-% ho preso il theta 1 quindi quello in alto (seconda componente dei
-% vettori) e ho considerato il valore iniziale per il tempo 2 e il valore
-% finale per il delta tempo 3 
+
 
 %% 5: vado al pericentro theta = 0 rad
 deltat3 = TOF(ai, ei, theta_cwf, 0);
@@ -105,43 +99,3 @@ plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rr2(1), rr2(2), rr2(3), 'ko');
 hold off
-
-%%
-% %% plottare su grafici diversi 
-% 
-% % iniziale
-% Terra_3D
-% plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
-% 
-% plot3(rr(1), rr(2), rr(3), 'ko');
-% 
-% % cambio orbita
-% Terra_3D
-% plotOrbit(ai, ei, i_f, OMf, om2, 0, 2*pi, 0.001, 'rad', 'm')
-% 
-% [rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
-% plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
-% 
-% % cambio anomalia pericentro
-% Terra_3D
-% plotOrbit(ai, ei, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
-% 
-% [rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf, "rad");
-% plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
-% 
-% % arco bitangente
-% Terra_3D
-% plotOrbit(at, et, i_f, OMf, omf_new, pi, 2*pi, 0.001, 'rad', 'b')
-% 
-% [rrpt, vvpt] = par2car(at, et, i_f, OMf, omf_new, pi, "rad");
-% plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
-% [rrat, vvat] = par2car(at, et, i_f, OMf, omf_new, 2*pi, "rad");
-% plot3(rrat(1), rrat(2), rrat(3), 'k*');
-% 
-% % finale
-% Terra_3D
-% plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g')
-% 
-% [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
-% plot3(rr2(1), rr2(2), rr2(3), 'ko');
-% 
