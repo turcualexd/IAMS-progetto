@@ -10,7 +10,7 @@ function [DeltaV1, DeltaV2, Deltat, om_f_new, om_t, a_t, e_t] = bitangentTransfe
 % ei            [1x1]       initial eccentricity                            [-]
 % af            [1x1]       final semi-major axis                           [km]
 % ef            [1x1]       final eccentricity                              [-]
-% type          [cahr]      maneuver type                                   [-]
+% type          [char]      maneuver type                                   [-]
 % om_i          [1x1]       initial pericenter anomaly                      [rad]
 % mu            [1x1]       gravitational parameter                         [km^3/s^2]
 % 
@@ -30,7 +30,7 @@ if nargin == 6
 end
 
 % Setting the new pericenter anomaly as the one of the initial orbit, it may
-% hanges during che manuevre 
+% changes during che manuevre 
 
 om_f_new = om_i;
 om_t = om_i;
