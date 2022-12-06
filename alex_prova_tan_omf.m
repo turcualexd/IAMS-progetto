@@ -19,15 +19,15 @@ thf = 0.3316;
 th_cp = th_cp_vect(2);
 
 %% Tangente
-deltaV = 1;
+deltaV = 1.7;
 
-[a_cp, e_cp, i_cp, OM_cp, om_cp, thi1, thf2] = tan_omf(ai, ei, i_i, OMi, omi, om_cp, deltaV);
+[a_cp, e_cp, thi1, thf2] = tan_omf_opt(ai, ei, omi, om_cp, deltaV);
 
 %% Plot
 Terra_3D
 plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b')
-plotOrbit(a_cp, e_cp, i_cp, OM_cp, om_cp, 0, 2*pi, 0.001, 'rad', 'g')
+plotOrbit(a_cp, e_cp, i_i, OMi, om_cp, 0, 2*pi, 0.001, 'rad', 'g')
 plotOrbit(a_cp, e_cp, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'k')
 
 plot3(rri(1), rri(2), rri(3), 'ko');
