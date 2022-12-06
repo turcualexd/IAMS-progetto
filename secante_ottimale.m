@@ -33,7 +33,7 @@ function [at, et, i_t, OMt, omt, th1_trasf, th2_trasf, th1_iniziale, th2_finale,
 %                           (default = nan, porre uguale a nan)
 %                           se si vuole trovare il punto ottimale)
 %
-% plot (opz.)               booleano, se vero plotta il persorso            [true - false]
+% plot (opz.)               booleano, se vero plotta il percorso            [true - false]
 %                           da punto iniziale a punto finale
 %                           (default = false)
 %
