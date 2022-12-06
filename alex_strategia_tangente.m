@@ -31,7 +31,7 @@ th_f = 0.3316;
 th_tan_cp = th_tan_cp_vect(2);
 
 %% Orbita tangente (a partire dal deltaV iniziale e om assegnato)
-deltaV_i_tan = 0.63;
+deltaV_i_tan = 0.6212;
 i_tan = i_i;
 OM_tan = OM_i;
 [a_tan, e_tan, th_i_tan_1, th_i_tan_2] = tan_omf_opt(a_i, e_i, om_i, om_tan, deltaV_i_tan);
