@@ -85,7 +85,6 @@ deltat_tot_h = deltat_tot/3600 %tempo in ore
 %% plotto con i tratti giusti
 
 % iniziale
-close all
 Terra_3D
 
 plotOrbit(ai, ei, ii, OMi, omi, thi, 2*pi, 0.001, 'rad', 'r')
@@ -118,6 +117,5 @@ plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, thf, 0.001, 'rad', 'g')
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g--');
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rr2(1), rr2(2), rr2(3), 'ko');
-
 
 
