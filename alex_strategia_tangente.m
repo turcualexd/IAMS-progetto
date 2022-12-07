@@ -67,19 +67,19 @@ T_tot = T1 + T2 + T3 + T4 + T5
 Terra_3D
 
 % orbita iniziale
-plotOrbit(a_i, e_i, i_i, OM_i, om_i, th_i, th_i_tan_1, 0.001, 'rad', 'r')
+plotOrbit(a_i, e_i, i_i, OM_i, om_i, th_i, th_i_tan_1, 0.001, 'rad', 'r');
 
 % orbita tangente
-plotOrbit(a_tan, e_tan, i_tan, OM_tan, om_tan, th_i_tan_2, th_tan_cp, 0.001, 'rad', 'g')
+plotOrbit(a_tan, e_tan, i_tan, OM_tan, om_tan, th_i_tan_2, th_tan_cp, 0.001, 'rad', 'g');
 
 % orbita cambio piano
-plotOrbit(a_cp, e_cp, i_cp, OM_cp, om_cp, th_tan_cp, th_cp_bit, 0.001, 'rad', 'k')
+plotOrbit(a_cp, e_cp, i_cp, OM_cp, om_cp, th_tan_cp, th_cp_bit, 0.001, 'rad', 'k');
 
 % orbita bitangente
-plotOrbit(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 0.001, 'rad', 'c')
+plotOrbit(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 0.001, 'rad', 'c');
 
 % orbita finale
-plotOrbit(a_f, e_f, i_f, OM_f, om_f, th_bit_f, th_f, 0.001, 'rad', 'b')
+plotOrbit(a_f, e_f, i_f, OM_f, om_f, th_bit_f, th_f, 0.001, 'rad', 'b');
 
 % punto iniziale
 plot3(rr_i(1), rr_i(2), rr_i(3), 'ro');
