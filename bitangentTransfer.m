@@ -85,11 +85,12 @@ switch type
 
         if rpf < rpi
             rpt = rpf;
-            rat = rpi;  
+            rat = rpi; 
+            om_t = om_i + pi;
         else
             rat = rpf;
             rpt = rpi;
-            om_t = om_i + pi;
+           
         end
 
         a_t = (rat + rpt)/2;
@@ -107,10 +108,10 @@ switch type
         if rai < raf
             rpt = rai;
             rat = raf;
+            om_t = om_i + pi;
         else
             rpt = raf;
             rat = rai;
-            om_t = om_i + pi;
         end     
         
         a_t = (rat + rpt)/2;

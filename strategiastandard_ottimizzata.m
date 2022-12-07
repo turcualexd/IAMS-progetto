@@ -63,7 +63,7 @@ theta_cwi = theta_cwi(1);
 theta_cwf = theta_cwf(1);
 deltaT4 = TOF(af, ef, theta_cp, theta_cwi);
 
-%plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
+plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'c')
 [rrcw, vvcw] = par2car(af, ef, i_f, OMf, omf, theta_cwf, "rad");
 plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
 
@@ -85,8 +85,11 @@ deltat_tot_h = deltat_tot/3600 %tempo in ore
 %% plotto con i tratti giusti
 
 % iniziale
+close all
 Terra_3D
+
 plotOrbit(ai, ei, ii, OMi, omi, thi, 2*pi, 0.001, 'rad', 'r')
+plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--');
 hold on
 plot3(rr(1), rr(2), rr(3), 'ko');
 
@@ -111,8 +114,10 @@ plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
 plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
 
 %
-plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, 2*pi, 0.001, 'rad', 'g')
-plotOrbit(af, ef, i_f, OMf, omf, 0 , thf, 0.001, 'rad', 'g')
+plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, thf, 0.001, 'rad', 'g')
+plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'g--');
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rr2(1), rr2(2), rr2(3), 'ko');
+
+
 
