@@ -61,28 +61,42 @@ deltat_tot_h = deltat_tot/3600; %tempo in ore
 % iniziale
 Terra_3D
 plotOrbit(ai, ei, ii, OMi, omi, thi, theta_cp, 0.001, 'rad', 'r');
-plot3(rr(1), rr(2), rr(3), 'ro');
 
 % cambio piano
 plotOrbit(ai, ei, i_f, OMf, om2, theta_cp, theta_cwi, 0.001, 'rad', 'm'); 
-[rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
-plot3(rrcp(1), rrcp(2), rrcp(3), 'm*');
 
 % cambio anomalia pericentro
-plotOrbit(ai, ei, i_f, OMf, omf, theta_cwf, pi, 0.001, 'rad', 'k');
-[rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf, "rad");
-plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
+plotOrbit(ai, ei, i_f, OMf, omf, theta_cwf, pi, 0.001, 'rad', 'c');
 
 % arco bitangente
-plotOrbit(at, et, i_f, OMf, om_t, pi, 2*pi, 0.001, 'rad', 'b'); 
-[rrpt, vvpt] = par2car(at, et, i_f, OMf, om_t, pi, "rad");
-plot3(rrpt(1), rrpt(2), rrpt(3), 'b*');
-[rrat, vvat] = par2car(at, et, i_f, OMf, om_t, 2*pi, "rad");
-plot3(rrat(1), rrat(2), rrat(3), 'b*');
+plotOrbit(at, et, i_f, OMf, om_t, pi, 2*pi, 0.001, 'rad', 'g'); 
 
 % orbita finale
-plotOrbit(af, ef, i_f, OMf, omf, 0, thf, 0.001, 'rad', 'g'); 
+plotOrbit(af, ef, i_f, OMf, omf, 0, thf, 0.001, 'rad', 'b'); 
+
+
+
+%intersezioni
+plot3(rr(1), rr(2), rr(3), 'ko');
+[rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
+plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
+[rrcw, vvcw] = par2car(ai, ei, i_f, OMf, omf, theta_cwf, "rad");
+plot3(rrcw(1), rrcw(2), rrcw(3), 'k*');
+[rrpt, vvpt] = par2car(at, et, i_f, OMf, om_t, pi, "rad");
+plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
+[rrat, vvat] = par2car(at, et, i_f, OMf, om_t, 2*pi, "rad");
+plot3(rrat(1), rrat(2), rrat(3), 'k*');
 [rrf, vvf] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
-plot3(rrf(1), rrf(2), rrf(3), 'go');
+plot3(rrf(1), rrf(2), rrf(3), 'ko');
 
 hold off
+
+% legenda
+legend('', ...
+        'Orbita iniziale', ...   %r
+        'Orbita cambio piano',...    %m
+        'Orbita cambio pericentro', ...   %c
+        'Orbita bitangente', ...  % g
+        'Orbita finale', ...   %b
+        'Punti iniziale e finale', ...  %ko
+        'Punti di intersezione')   %k*
