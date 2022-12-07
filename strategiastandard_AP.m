@@ -44,7 +44,7 @@ plotOrbit(af, ef, ii, OMi, omt, 0, 2*pi, 0.001, 'rad', 'k')
 %% cambio piano
 
 % theta_cp è punto di cambio piano
-[DeltaV3, om2, theta_cp] = changeOrbitalPlane(af, ef, ii, OMi, omi, i_f, OMf);
+[DeltaV3, om2, theta_cp] = changeOrbitalPlane(af, ef, ii, OMi, om_f_new, i_f, OMf);
 % prendo il delta v minore
 DeltaV3 = DeltaV3(2);
 theta_cp = theta_cp(2);
