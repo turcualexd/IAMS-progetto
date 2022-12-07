@@ -29,9 +29,6 @@ end
 % initial and final true anomalies
 
 delta_om = omf - omi;
-if delta_om < 0 
-    delta_om = 2*pi - delta_om;
-end
 
 thi = [(delta_om/2) pi+(delta_om/2)];
 thf = [2*pi-(delta_om/2) pi-(delta_om/2)];

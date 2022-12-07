@@ -1,4 +1,4 @@
-function plotOrbit(a, e, i, OM, om, thi, thf, dth, unit, Color)
+function [rri, rrf] = plotOrbit(a, e, i, OM, om, thi, thf, dth, unit, Color)
 
 if unit == "deg"
     thi = deg2rad(thi);
@@ -26,3 +26,6 @@ plot3(rr(1,:), rr(2,:), rr(3,:), Color);
 xlabel('X [km]');
 ylabel('Y [km]');
 zlabel('Z [km]');
+
+rri = rr(:, 1);
+rrf = rr(:, end);
