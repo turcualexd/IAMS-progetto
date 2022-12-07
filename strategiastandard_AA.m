@@ -76,23 +76,34 @@ deltat_tot_h = deltat_tot/3600; %tempo in ore
 prec = 1e-3; % precisione plotOrbit
 
 Terra_3D
+% orbita iniziale
+plotOrbit(ai, ei, ii, OMi, omi, thi, pi, prec, 'rad', 'r'); 
+% plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, prec, 'rad', 'r--');
+% bitangente apo apo
+plotOrbit(at, et, ii, OMi, om_t, 0, pi, prec, 'rad', 'm'); 
+% arrivo su cambio piano da apo
+plotOrbit(af, ef, ii, OMi, om_pre_cambio_piano, pi, theta_cp, prec, 'rad', 'c'); 
+% cambio piano e mi porto in posizione per delta_om
+plotOrbit(af, ef, i_f, OMf, omcp, theta_cp, theta_cwi, prec, 'rad', 'g');  
+% orbita finale
+plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, thf, prec, 'rad', 'b');
+% plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, prec, 'rad', 'g--');
 
-plotOrbit(ai, ei, ii, OMi, omi, thi, pi, prec, 'rad', 'r'); % orbita iniziale
-plotOrbit(ai, ei, ii, OMi, omi, 0, 2*pi, prec, 'rad', 'r--');
-plotOrbit(at, et, ii, OMi, om_t, 0, pi, prec, 'rad', 'b'); % bitangente apo apo
-plotOrbit(af, ef, ii, OMi, om_pre_cambio_piano, pi, theta_cp, prec, 'rad', 'k'); % arrivo su cambio piano da apo
-plotOrbit(af, ef, i_f, OMf, omcp, theta_cp, theta_cwi, prec, 'rad', 'm'); % cambio piano e mi porto in posizione per delta_om
-plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, thf, prec, 'rad', 'g'); % orbita finale
-plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, prec, 'rad', 'g--');
-
-plot3(rr(1), rr(2), rr(3), 'ro'); % punto iniziale
-plot3(rrpt(1), rrpt(2), rrpt(3), 'r*'); % punto di apo iniziale, inserzione sulla bitangente
-plot3(rrat(1), rrat(2), rrat(3), 'b*'); % fine bitangente
+plot3(rr(1), rr(2), rr(3), 'ko'); % punto iniziale
+plot3(rrpt(1), rrpt(2), rrpt(3), 'k*'); % punto di apo iniziale, inserzione sulla bitangente
+plot3(rrat(1), rrat(2), rrat(3), 'k*'); % fine bitangente
 plot3(rrcp(1), rrcp(2), rrcp(3), 'k*'); % punto di cambio piano
-plot3(rrcw(1), rrcw(2), rrcw(3), 'm*'); % cambio anomalia del pericentro
-plot3(rrf(1), rrf(2), rrf(3), 'go'); % punto finale
-
-legend('Earth', 'Initial Orbit', '', 'Bitangent Transfer', 'Transfer Orbit', 'Change Plane', 'Final Orbit', '', 'Initial Point', 'manuver 1', 'manuver 2', 'manuver 3', 'manuver 4', 'final point')
+plot3(rrcw(1), rrcw(2), rrcw(3), 'k*'); % cambio anomalia del pericentro
+plot3(rrf(1), rrf(2), rrf(3), 'ko'); % punto finale
 
 
 
+% legenda
+legend('', ...
+        'Orbita iniziale', ...   %r
+        'Arco bitangente',...    %m
+        'Orbita bitangente', ...   %c
+        'Orbita cambio piano', ...  % g
+        'Orbita finale', ...          %b
+        'Punti iniziale e finale', ...  %ko
+        'Punti di intersezione')   %k*

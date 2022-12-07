@@ -94,10 +94,8 @@ plotOrbit(at, et, ii, OMi, omt, 0, pi, 0.001, 'rad', 'm')
 plotOrbit(af, ef, ii, OMi, omt, pi, theta_cp, 0.001, 'rad', 'c')
 
 % cambio piano
-plotOrbit(af, ef, i_f, OMf, om2, theta_cp, 2*pi, 0.001, 'rad', 'g')
+plotOrbit(af, ef, i_f, OMf, om2, theta_cp,theta_cwi , 0.001, 'rad', 'g')
 
-% cambio anomalia
-plotOrbit(af, ef, i_f, OMf, om2, 0, theta_cwi, 0.001, 'rad', 'k')
 
 % finale
 plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, thf, 0.001, 'rad', 'b')
@@ -128,7 +126,6 @@ legend('', ...
         'Arco bitangente',...    %m
         'Orbita bitangente', ...   %c
         'Orbita cambio piano', ...  % g
-        'Orbita cambio pericentro', ...   %k
         'Orbita finale', ...          %b
         'Punti iniziale e finale', ...  %ko
         'Punti di intersezione')   %k*
