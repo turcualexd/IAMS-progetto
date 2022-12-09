@@ -115,3 +115,21 @@ legend('', ...
         'Orbita finale', ...
         'Punti iniziale e finale', ...
         'Punti di intersezione')
+
+%% Animated plot
+Terra_3D
+
+% orbita iniziale
+plotOrbit_anime(a_i, e_i, i_i, OM_i, om_i, th_i, th_i_tan_1, 'r');
+
+% orbita tangente
+plotOrbit_anime(a_tan, e_tan, i_tan, OM_tan, om_tan, th_i_tan_2, th_tan_cp, 'g');
+
+% orbita cambio piano
+plotOrbit_anime(a_cp, e_cp, i_cp, OM_cp, om_cp, th_tan_cp, th_cp_bit, 'k');
+
+% orbita bitangente
+plotOrbit_anime(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 'c');
+
+% orbita finale
+plotOrbit_anime(a_f, e_f, i_f, OM_f, om_f, th_bit_f, th_f, 'b');
