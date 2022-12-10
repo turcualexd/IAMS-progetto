@@ -129,3 +129,19 @@ legend('', ...
         'Orbita finale', ...          %b
         'Punti iniziale e finale', ...  %ko
         'Punti di intersezione')   %k*
+
+
+%% Animated plot
+Terra_3D
+
+% orbita iniziale
+plotOrbit_anime(ai, ei, ii, OMi, omi, thi, pi, 'r');
+
+plotOrbit_anime(at, et, ii, OMi, omt, pi, 2*pi, 'm');
+
+plotOrbit_anime(af, ef, ii, OMi, omt, 0, theta_cp, 'c');
+
+plotOrbit_anime(af, ef, i_f, OMf, om2, theta_cp, theta_cwi, 'g');
+
+% orbita finale
+plotOrbit_anime(af, ef, i_f, OMf, omf, theta_cwf, thf, 'b');
