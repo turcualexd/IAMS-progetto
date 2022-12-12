@@ -20,12 +20,8 @@ for j = 1:length(th)
     vv = [vv v];
 end
 
-grid on
 plot3(rr(1,:), rr(2,:), rr(3,:), Color);
 %comet3(rr(1,:), rr(2,:), rr(3,:));
-xlabel('X [km]');
-ylabel('Y [km]');
-zlabel('Z [km]');
 
 rri = rr(:, 1);
 rrf = rr(:, end);
