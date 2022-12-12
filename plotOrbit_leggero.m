@@ -1,4 +1,4 @@
-function [rri, rrf] = plotOrbit(a, e, i, OM, om, thi, thf, dth, unit, Color)
+function [rri, rrf] = plotOrbit_leggero(a, e, i, OM, om, thi, thf, dth, unit, Color)
 
 if unit == "deg"
     thi = deg2rad(thi);
@@ -20,7 +20,7 @@ for j = 1:length(th)
     vv = [vv v];
 end
 
-plot3(rr(1,:), rr(2,:), rr(3,:), Color, LineWidth=1.5);
+plot3(rr(1,:), rr(2,:), rr(3,:), Color);
 %comet3(rr(1,:), rr(2,:), rr(3,:));
 
 rri = rr(:, 1);

@@ -16,10 +16,11 @@ thf = 0.3316;
 
 %% Plot
 Terra_3D
-plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
+%plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r')
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b')
 
-plot3(rri(1), rri(2), rri(3), 'ko');
-plot3(rrf(1), rrf(2), rrf(3), 'ko');
+% plot3(rri(1), rri(2), rri(3), 'ro', LineWidth=2);
+plot3(rrf(1), rrf(2), rrf(3), 'bo', LineWidth=2);
 
-legend('', 'Orbita iniziale', 'Orbita finale', 'Punti iniziale e finale')
+legend('', 'Final Orbit', 'Final Point', fontsize=15)
+%, 'Orbita finale', 'Punti iniziale e finale')
