@@ -101,4 +101,4 @@ legend('', ...
         'Orbita finale', ...          %b
         'Punti iniziale e finale', ...  %ko
         'Punti di intersezione')   %k*
-
+% non mi tornano i tehta di cambio pericentro
