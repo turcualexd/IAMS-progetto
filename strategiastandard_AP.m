@@ -122,14 +122,13 @@ plot3(rr2(1), rr2(2), rr2(3), 'ko');
 
 % legenda
 legend('', ...
-        'Orbita iniziale', ...   %r
-        'Arco bitangente',...    %m
-        'Orbita bitangente', ...   %c
-        'Orbita cambio piano', ...  % g
-        'Orbita finale', ...          %b
-        'Punti iniziale e finale', ...  %ko
-        'Punti di intersezione')   %k*
-
+        'Initial Orbit', ...   %r
+        'Bitangent Orbit',...    %m
+        'Transfer Orbit', ...   %c
+        'Change Plane Orbit', ...  % g
+        'Final Orbit', ...          %b
+        'Initial and Final Point', ...  %ko
+        'Maneuver Points')   %k*
 
 %% Animated plot
 Terra_3D

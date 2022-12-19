@@ -97,10 +97,11 @@ plot3(rrbt(1), rrbt(2), rrbt(3), 'k*');
 
 % legenda
 legend('', ...
-        'Orbita iniziale', ...   %r
-        'Arco bitangente',...    %m
-        'Orbita circolare', ...   %c
-        'Orbita cambio piano', ...  % g
-        'Orbita finale', ...          %b
-        'Punti iniziale e finale', ...  %ko
-        'Punti di intersezione')   %k*
+        'Initial Orbit', ...   %r
+        'Bitangent Orbit',...    %m
+        'Circular Orbit', ...   %c
+        'Change Plane Orbit', ...  % g
+        'Final Orbit', ...          %b
+        'Initial and Final Point', ...  %ko
+        'Maneuver Points')   %k*
+
