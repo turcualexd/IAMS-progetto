@@ -64,3 +64,6 @@ for k = 1 : n
 end
 
 plot(deltaV_i_tan_vect, deltaV_tot_vect)
+
+[deltaV_tot_min, kmin] = min(deltaV_tot_vect);
+deltaV_i_tan_vect(kmin)
