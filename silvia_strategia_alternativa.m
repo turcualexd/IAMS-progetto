@@ -92,6 +92,9 @@ plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rr2(1), rr2(2), rr2(3), 'ko');
 
+[rrbt, vvbt] = par2car(raf, e_2, i_f, OMf, omf, pi, "rad");
+plot3(rrbt(1), rrbt(2), rrbt(3), 'k*');
+
 % legenda
 legend('', ...
         'Orbita iniziale', ...   %r
