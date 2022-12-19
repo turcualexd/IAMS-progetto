@@ -73,7 +73,7 @@ plotOrbit(at, et, ii, OMi, omt, 0, pi, 0.001, 'rad', 'm')
 plotOrbit(raf, e_2, ii, OMi, omt, pi, theta_cp, 0.001, 'rad', 'c')
 
 %cambio piano
-plotOrbit(raf, e_2, i_f, OMf, om2, theta_cp, pi, 0.001, 'rad', 'g')
+plotOrbit(raf, e_2, i_f, OMf, om2, theta_cp, pi + omf - om2, 0.001, 'rad', 'g')
 
 %finale
 plotOrbit(af, ef, i_f, OMf, omf, pi, thf, 0.001, 'rad', 'b')
