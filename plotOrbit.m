@@ -1,4 +1,4 @@
-function [rri, rrf] = plotOrbit(a, e, i, OM, om, thi, thf, dth, unit, Color)
+function [rri, rrf] = plotOrbit(a, e, i, OM, om, thi, thf, dth, unit, color_orbit)
 
 if unit == "deg"
     thi = deg2rad(thi);
@@ -20,7 +20,7 @@ for j = 1:length(th)
     vv = [vv v];
 end
 
-plot3(rr(1,:), rr(2,:), rr(3,:), Color, LineWidth=1.5);
+plot3(rr(1,:), rr(2,:), rr(3,:), 'color', color_orbit, LineWidth=1.5);
 %comet3(rr(1,:), rr(2,:), rr(3,:));
 
 rri = rr(:, 1);
