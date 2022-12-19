@@ -92,10 +92,10 @@ hold off
 
 % legenda
 legend('', ...
-        'Orbita iniziale', ...   %r
-        'Orbita cambio piano',...    %m
-        'Orbita cambio pericentro', ...   %c
-        'Orbita bitangente', ...  % g
-        'Orbita finale', ...   %b
-        'Punti iniziale e finale', ...  %ko
-        'Punti di intersezione')   %k*
+        'Initial Orbit', ...   %r
+        'Change Plane Orbit',...    %m
+        'Change Pericenter Argument Orbit', ...   %c
+        'Bitangent Orbit', ...  % g
+        'Final Orbit', ...   %b
+        'Initial and Final Point', ...  %ko
+        'Maneuver Points')   %k*

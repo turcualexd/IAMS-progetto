@@ -92,12 +92,16 @@ plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
 plot3(rr2(1), rr2(2), rr2(3), 'ko');
 
+[rrbt, vvbt] = par2car(raf, e_2, i_f, OMf, omf, pi, "rad");
+plot3(rrbt(1), rrbt(2), rrbt(3), 'k*');
+
 % legenda
 legend('', ...
-        'Orbita iniziale', ...   %r
-        'Arco bitangente',...    %m
-        'Orbita circolare', ...   %c
-        'Orbita cambio piano', ...  % g
-        'Orbita finale', ...          %b
-        'Punti iniziale e finale', ...  %ko
-        'Punti di intersezione')   %k*
+        'Initial Orbit', ...   %r
+        'Bitangent Orbit',...    %m
+        'Circular Orbit', ...   %c
+        'Change Plane Orbit', ...  % g
+        'Final Orbit', ...          %b
+        'Initial and Final Point', ...  %ko
+        'Maneuver Points')   %k*
+

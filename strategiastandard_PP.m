@@ -94,11 +94,10 @@ plot3(rrf(1), rrf(2), rrf(3), 'ko'); % punto finale
 
 % legenda
 legend('', ...
-        'Orbita iniziale', ...   %r
-        'Arco bitangente',...    %m
-        'Orbita bitangente', ...   %c
-        'Orbita cambio piano', ...  % g
-        'Orbita finale', ...          %b
-        'Punti iniziale e finale', ...  %ko
-        'Punti di intersezione')   %k*
-% non mi tornano i tehta di cambio pericentro
+        'Initial Orbit', ...   %r
+        'Bitangent Orbit',...    %m
+        'Transfer Orbit', ...   %c
+        'Change Plane Orbit', ...  % g
+        'Final Orbit', ...          %b
+        'Initial and Final Point', ...  %ko
+        'Maneuver Points')   %k*
