@@ -27,7 +27,10 @@ th_f = 0.3316;
 [rr_f, vv_f] = par2car(a_f, e_f, i_f, OM_f, om_f, th_f);
 
 %% Trovo om per l'orbita tangente in modo che l'orbita di cambio piano risulti allineata a quella finale
-[om_tan, th_tan_cp_vect] = changeOrbitalPlane_mod(i_f, OM_f, om_f, i_i, OM_i);
+% [om_tan, th_tan_cp_vect] = changeOrbitalPlane_mod(i_f, OM_f, om_f, i_i, OM_i);
+% th_tan_cp = th_tan_cp_vect(2);
+
+[om_tan, th_tan_cp_vect] = changeOrbitalPlane_mod_rel(i_f, OM_f, om_f, i_i, OM_i);
 th_tan_cp = th_tan_cp_vect(2);
 
 %% Orbita tangente (a partire dal deltaV iniziale e om assegnato)
@@ -117,19 +120,19 @@ legend('', ...
         'Punti di intersezione')
 
 %% Animated plot
-Terra_3D
-
-% orbita iniziale
-plotOrbit_anime(a_i, e_i, i_i, OM_i, om_i, th_i, th_i_tan_1, 'r');
-
-% orbita tangente
-plotOrbit_anime(a_tan, e_tan, i_tan, OM_tan, om_tan, th_i_tan_2, th_tan_cp, 'g');
-
-% orbita cambio piano
-plotOrbit_anime(a_cp, e_cp, i_cp, OM_cp, om_cp, th_tan_cp, th_cp_bit, 'k');
-
-% orbita bitangente
-plotOrbit_anime(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 'c');
-
-% orbita finale
-plotOrbit_anime(a_f, e_f, i_f, OM_f, om_f, th_bit_f, th_f, 'b');
+% Terra_3D
+% 
+% % orbita iniziale
+% plotOrbit_anime(a_i, e_i, i_i, OM_i, om_i, th_i, th_i_tan_1, 'r');
+% 
+% % orbita tangente
+% plotOrbit_anime(a_tan, e_tan, i_tan, OM_tan, om_tan, th_i_tan_2, th_tan_cp, 'g');
+% 
+% % orbita cambio piano
+% plotOrbit_anime(a_cp, e_cp, i_cp, OM_cp, om_cp, th_tan_cp, th_cp_bit, 'k');
+% 
+% % orbita bitangente
+% plotOrbit_anime(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 'c');
+% 
+% % orbita finale
+% plotOrbit_anime(a_f, e_f, i_f, OM_f, om_f, th_bit_f, th_f, 'b');
