@@ -65,6 +65,7 @@ deltat_tot_h = deltat_tot/3600 %tempo in ore
 Terra_3D
 plotOrbit(ai, ei, ii, OMi, omi, thi, 2*pi, 0.001, 'rad', 'r')
 hold on
+plotOrbit_leggero(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--')
 
 % arco bitangente
 plotOrbit(at, et, ii, OMi, omt, 0, pi, 0.001, 'rad', 'm')
@@ -77,6 +78,8 @@ plotOrbit(raf, e_2, i_f, OMf, om2, theta_cp, pi + omf - om2, 0.001, 'rad', 'g')
 
 %finale
 plotOrbit(af, ef, i_f, OMf, omf, pi, thf, 0.001, 'rad', 'b')
+
+plotOrbit_leggero(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b--')
 
 
 % intersezioni
@@ -97,11 +100,13 @@ plot3(rrbt(1), rrbt(2), rrbt(3), 'k*');
 
 % legenda
 legend('', ...
-        'Initial Orbit', ...   %r
+        'Initial Orbit', ...
+        '',...
         'Bitangent Orbit',...    %m
         'Circular Orbit', ...   %c
         'Change Plane Orbit', ...  % g
-        'Final Orbit', ...          %b
+        'Final Orbit', ...
+        '',...          %b
         'Initial and Final Point', ...  %ko
-        'Maneuver Points')   %k*
+        'Maneuver Points', fontsize=15)   %k*
 
