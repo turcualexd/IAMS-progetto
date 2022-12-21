@@ -31,11 +31,16 @@ th_f = 0.3316;
 th_tan_cp = th_tan_cp_vect(2);
 
 %% Orbita tangente (a partire dal deltaV iniziale e om assegnato)
-n = 100;
-deltaV_i_tan_vect = linspace(0.6, 0.7, n);
+n = 300;
+deltaV_i_tan_vect = linspace(0, 2.6, n);
 deltaV_tot_vect = nan(1, n);
 
+w = waitbar(0, 'Calcolando le velocità... (0%)', Name='Plottando il grafico');
+
 for k = 1 : n
+
+    x = k / n;
+    waitbar(x, w, sprintf('Calcolando le velocità... (%g%%)', x * 100));
 
     deltaV_i_tan = deltaV_i_tan_vect(k);
     i_tan = i_i;
@@ -63,7 +68,13 @@ for k = 1 : n
 
 end
 
+close(w);
+
 plot(deltaV_i_tan_vect, deltaV_tot_vect)
 
 [deltaV_tot_min, kmin] = min(deltaV_tot_vect);
 deltaV_i_tan_vect(kmin)
+
+title('Costo totale della strategia')
+xlabel('\Deltav_{tangente}')
+ylabel('\Deltav_{totale}')
