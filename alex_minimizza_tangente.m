@@ -31,7 +31,7 @@ th_f = 0.3316;
 th_tan_cp = th_tan_cp_vect(2);
 
 %% Orbita tangente (a partire dal deltaV iniziale e om assegnato)
-n = 300;
+n = 1000;
 deltaV_i_tan_vect = linspace(0, 2.6, n);
 deltaV_tot_vect = nan(1, n);
 
@@ -75,6 +75,6 @@ plot(deltaV_i_tan_vect, deltaV_tot_vect)
 [deltaV_tot_min, kmin] = min(deltaV_tot_vect);
 deltaV_i_tan_vect(kmin)
 
-title('Costo totale della strategia')
-xlabel('\Deltav_{tangente}')
-ylabel('\Deltav_{totale}')
+title('Total cost of the strategy')
+xlabel('\Deltav_{tangent}')
+ylabel('\Deltav_{total}')
