@@ -75,7 +75,8 @@ plotOrbit(af, ef, i_f, OMf, om2, theta_cp, theta_cwi, 0.001, 'rad', 'g')
 %
 plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, thf, 0.001, 'rad', 'b')
 
-
+plotOrbit_leggero(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--')
+plotOrbit_leggero(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b--')
 
 % intersezioni
 plot3(rr(1), rr(2), rr(3), 'ko');
@@ -102,8 +103,10 @@ legend('', ...
         'Transfer Orbit', ...   %c
         'Change Plane Orbit', ...  % g
         'Final Orbit', ...          %b
+        '', ...
+        '', ...
         'Initial and Final Point', ...  %ko
-        'Maneuver Points')   %k*
+        'Maneuver Points', fontsize = 15)   %k*
 
 %% Animated plot
 Terra_3D

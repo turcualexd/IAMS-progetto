@@ -89,6 +89,9 @@ plotOrbit(af, ef, i_f, OMf, omcp, theta_cp, theta_cwi, prec, 'rad', 'g');
 plotOrbit(af, ef, i_f, OMf, omf, theta_cwf, thf, prec, 'rad', 'b');
 % plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, prec, 'rad', 'g--');
 
+plotOrbit_leggero(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--')
+plotOrbit_leggero(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b--')
+
 plot3(rr(1), rr(2), rr(3), 'ko'); % punto iniziale
 plot3(rrpt(1), rrpt(2), rrpt(3), 'k*'); % punto di apo iniziale, inserzione sulla bitangente
 plot3(rrat(1), rrat(2), rrat(3), 'k*'); % fine bitangente
@@ -105,7 +108,9 @@ legend('', ...
         'Transfer Orbit', ...   %c
         'Change Plane Orbit', ...  % g
         'Final Orbit', ...          %b
+        '',...
+        '',...
         'Initial and Final Point', ...  %ko
-        'Maneuver Points')   %k*
+        'Maneuver Points', fontsize = 15)   %k*
 
 

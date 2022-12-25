@@ -74,6 +74,9 @@ plotOrbit(at, et, i_f, OMf, om_t, 0, pi, 0.001, 'rad', 'g');
 % orbita finale
 plotOrbit(af, ef, i_f, OMf, omf, pi, thf, 0.001, 'rad', 'b'); 
 
+plotOrbit_leggero(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--')
+plotOrbit_leggero(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b--')
+
 % intersezioni
 plot3(rr(1), rr(2), rr(3), 'ko');
 [rrcp, vvcp] = par2car(ai, ei, i_f, OMf, om2, theta_cp, "rad");
@@ -96,6 +99,8 @@ legend('', ...
         'Change Plane Orbit',...    %m
         'Change Pericenter Argument Orbit', ...   %c
         'Bitangent Orbit', ...  % g
-        'Final Orbit', ...   %b
+        'Final Orbit', ...
+        '', ...
+        '',...   %b
         'Initial and Final Point', ...  %ko
-        'Maneuver Points')   %k*
+        'Maneuver Points', fontsize = 15)   %k*
