@@ -7,7 +7,7 @@ vv = [6.6450 7.1386 7.1222 6.6614 9.0993 9.1511 7.4603 7.4767 6.9762 5.1306 5.35
 forma = ['o'; 'o'; 'o'; 'o'; 'o'; 'o'; 'o'; 'o'; 'd'; 'd'; 's'];
 spessore = [6; 3; 3; 3; 4; 4; 3; 3; 6; 6; 5]; 
 color = ["#0000cd"; "#EDB120";"#c0c0c0"; "#d2b48c"; "#ff4500"; "#dc143c"; "#ffc0cb"; "#778899"; "r"; "b"; "#0000cd"];
-plot_paolo(tempi, vv, forma, spessore, color);
+plot_paolo_modificato(tempi, vv, forma, spessore, color);
 
 ylabel('\DeltaV [km/s]');
 xlabel('Time required [s]');
