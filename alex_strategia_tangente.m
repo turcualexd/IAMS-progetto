@@ -73,51 +73,57 @@ Terra_3D
 plotOrbit(a_i, e_i, i_i, OM_i, om_i, th_i, th_i_tan_1, 0.001, 'rad', 'r');
 
 % orbita tangente
-plotOrbit(a_tan, e_tan, i_tan, OM_tan, om_tan, th_i_tan_2, th_tan_cp, 0.001, 'rad', 'g');
+plotOrbit(a_tan, e_tan, i_tan, OM_tan, om_tan, th_i_tan_2, th_tan_cp, 0.001, 'rad', 'm');
 
 % orbita cambio piano
-plotOrbit(a_cp, e_cp, i_cp, OM_cp, om_cp, th_tan_cp, th_cp_bit, 0.001, 'rad', 'k');
+plotOrbit(a_cp, e_cp, i_cp, OM_cp, om_cp, th_tan_cp, th_cp_bit, 0.001, 'rad', 'c');
 
 % orbita bitangente
-plotOrbit(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 0.001, 'rad', 'c');
+plotOrbit(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 0.001, 'rad', 'g');
 
 % orbita finale
 plotOrbit(a_f, e_f, i_f, OM_f, om_f, th_bit_f, th_f, 0.001, 'rad', 'b');
 
 % punto iniziale
-plot3(rr_i(1), rr_i(2), rr_i(3), 'ro');
+plot3(rr_i(1), rr_i(2), rr_i(3), 'ko');
 
 % intersezione iniziale - tangente
 rr_i_tan = par2car(a_i, e_i, i_i, OM_i, om_i, th_i_tan_1);
-plot3(rr_i_tan(1), rr_i_tan(2), rr_i_tan(3), 'ko');
+plot3(rr_i_tan(1), rr_i_tan(2), rr_i_tan(3), 'k*');
 
 % intersezione tangente - cambio piano
 rr_tan_cp = par2car(a_tan, e_tan, i_tan, OM_tan, om_tan, th_tan_cp);
-plot3(rr_tan_cp(1), rr_tan_cp(2), rr_tan_cp(3), 'ko');
+plot3(rr_tan_cp(1), rr_tan_cp(2), rr_tan_cp(3), 'k*');
 
 % intersezione cambio piano - bitangente
 rr_cp_bit = par2car(a_cp, e_cp, i_cp, OM_cp, om_cp, th_cp_bit);
-plot3(rr_cp_bit(1), rr_cp_bit(2), rr_cp_bit(3), 'ko');
+plot3(rr_cp_bit(1), rr_cp_bit(2), rr_cp_bit(3), 'k*');
 
 % intersezione bitangente - finale
 rr_bit_f = par2car(a_bit, e_bit, i_bit, OM_bit, om_bit, th_bit_f);
-plot3(rr_bit_f(1), rr_bit_f(2), rr_bit_f(3), 'ko');
+plot3(rr_bit_f(1), rr_bit_f(2), rr_bit_f(3), 'k*');
 
 % punto finale
-plot3(rr_f(1), rr_f(2), rr_f(3), 'ro');
+plot3(rr_f(1), rr_f(2), rr_f(3), 'ko');
 
 % titolo
-title(sprintf('\\DeltaV = %g km/s   -   \\DeltaT = %g h', deltaV_tot, T_tot/60^2))
+% title(sprintf('\\DeltaV = %g km/s   -   \\DeltaT = %g h', deltaV_tot, T_tot/60^2))
+
+plotOrbit_leggero(a_i, e_i, i_i, OM_i, om_i, 0, 2*pi, 0.001, 'rad', 'r--')
+plotOrbit_leggero(a_f, e_f, i_f, OM_f, om_f, 0, 2*pi, 0.001, 'rad', 'b--')
+
 
 % legenda
 legend('', ...
-        'Orbita iniziale', ...
-        'Orbita tangente', ...
-        'Orbita cambio piano', ...
-        'Orbita bitangente', ...
-        'Orbita finale', ...
-        'Punti iniziale e finale', ...
-        'Punti di intersezione')
+        'Initial Orbit', ...
+        'Tangent Orbit', ...
+        'Change Plane Orbit', ...
+        'Bitangent Orbit', ...
+        'Final Orbit', ...
+        'Initial and Final Point', ...
+        'Maneuver Points', ...
+        '', ...
+        '', fontsize = 15)
 
 %% Animated plot
 % Terra_3D

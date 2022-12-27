@@ -236,10 +236,14 @@ if plot
     plot3(rri(1), rri(2), rri(3), 'ko');
     plot3(rrf(1), rrf(2), rrf(3), 'ko');
     
-    plot3(rr1(1), rr1(2), rr1(3), 'ro');
-    plot3(rr2(1), rr2(2), rr2(3), 'ro');
+    plot3(rr1(1), rr1(2), rr1(3), 'r*');
+    plot3(rr2(1), rr2(2), rr2(3), 'r*');
     
-    title('Plot di secante\_ottimale')
-    legend('', 'Orbita iniziale', 'Orbita di trasferimento', 'Orbita finale', 'Punti iniziale e finale', '', 'Punti di traferimento')
+    plotOrbit_leggero(ai, ei, i_i, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--')
+    plotOrbit_leggero(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b--')
+    
+    %title('Plot di secante\_ottimale')
+    legend('', 'Initial Orbit', 'Transfer Orbit', 'Final Orbit', 'Initial and Final Point', '', 'Maneuver Points', '', '', fontsize = 15)
+
 
 end
