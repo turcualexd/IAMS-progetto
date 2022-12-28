@@ -1,4 +1,4 @@
-function plot_paolo(x, y, forma, spessore, color)
+function plot_paolo_modificato(x, y, forma, spessore, color)
 
 % prende in input x, y, forma è la forma del puntino
 
