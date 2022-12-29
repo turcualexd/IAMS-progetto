@@ -42,14 +42,12 @@ Terra_3D
 
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b');
 
-quiver3(0,0,0, rrf(1), rrf(2), rrf(3), 'b', LineWidth=1,ShowArrowHead='on');
-
-plot3(rrf(1), rrf(2), rrf(3), 'co', LineWidth=2);
+plot3(rrf(1), rrf(2), rrf(3), 'ko', LineWidth=2);
 
 quiver3(rrf(1), rrf(2), rrf(3), vvf(1), vvf(2), vvf(3),1e3,...
-    'c', LineWidth=1,ShowArrowHead='on');
+    'k', LineWidth=1,ShowArrowHead='on');
 
-legend('', 'Initial Orbit', 'Initial position','Found point', 'Found velocity', fontsize=15)
+legend('', 'Final Orbit','Found point', 'Found velocity', fontsize=15)
 
 
 
