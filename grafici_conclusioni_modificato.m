@@ -14,5 +14,5 @@ xlabel('Time required [s]', FontSize=18);
 vv_min = min(vv);
 t_min = min(tempi);
 
-legend('S1: best standard', 'S2', 'S3', 'S4', 'S5', 'S6: worst strategy', 'S7', 'S8', 'A1: worst alternative', 'A2: best strategy', 'A3', fontsize=15); 
+legend('S1: proposed standard', 'S2', 'S3', 'S4', 'S5', 'S6: worst strategy', 'S7', 'S8', 'A1: worst alternative', 'A2: best strategy', 'A3', fontsize=15); 
 
