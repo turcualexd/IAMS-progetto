@@ -70,11 +70,11 @@ end
 
 close(w);
 
-plot(deltaV_i_tan_vect, deltaV_tot_vect)
-
+plot(deltaV_i_tan_vect, deltaV_tot_vect, 'LineWidth', 3)
+grid on
 [deltaV_tot_min, kmin] = min(deltaV_tot_vect);
 deltaV_i_tan_vect(kmin)
 
-title('Total cost of the strategy')
-xlabel('\Deltav_{tangent}')
-ylabel('\Deltav_{total}')
+set(gca, 'FontSize', 25, 'GridAlpha', 0.5)
+xlabel('\Deltav_{tangent} [km/s]', 'FontSize', 30)
+ylabel('\Deltav_{total} [km/s]', 'FontSize', 30)

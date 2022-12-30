@@ -9,10 +9,13 @@ spessore = [6; 3; 3; 3; 4; 4; 3; 3; 6; 6; 5];
 color = ["#0000cd"; "#EDB120";"#c0c0c0"; "#d2b48c"; "#ff4500"; "#dc143c"; "#ffc0cb"; "#778899"; "r"; "b"; "#0000cd"];
 plot_paolo_modificato(tempi, vv, forma, spessore, color);
 
-ylabel('\DeltaV [km/s]');
-xlabel('Time required [s]');
+grid on
+set(gca, 'FontSize', 25)
+
+ylabel('\Deltav [km/s]', 'FontSize', 30);
+xlabel('Time required [s]', 'FontSize', 30);
 vv_min = min(vv);
 t_min = min(tempi);
 
-legend('S1: best standard', 'S2', 'S3', 'S4', 'S5', 'S6: worst strategy', 'S7', 'S8', 'A1: worst alternative', 'A2: best strategy', 'A3', fontsize=15); 
+legend('S.1: proposed standard', 'S.2', 'S.3', 'S.4', 'S.5', 'S.6: worst standard', 'S.7', 'S.8', 'A.1: worst alternative', 'A.2: best strategy', 'A.3: tangent strategy', 'FontSize', 20); 
 

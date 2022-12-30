@@ -40,7 +40,8 @@ end
 
 close(w);
 
-plot(deltaV_i_vect, deltaV_cp_vect)
-
-xlabel('\Deltav_{tan}')
-ylabel('\Deltav_{cp}')
+plot(deltaV_i_vect, deltaV_cp_vect, 'LineWidth', 3)
+grid on
+set(gca, 'FontSize', 25, 'GridAlpha', 0.5)
+xlabel('\Deltav_{tan} [km/s]', 'FontSize', 30)
+ylabel('\Deltav_{cp} [km/s]', 'FontSize', 30)
