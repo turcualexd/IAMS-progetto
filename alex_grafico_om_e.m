@@ -114,14 +114,14 @@ e = (ri - rf) ./ (rf .* cos(thf) - ri .* cos(thi));
 a = ri .* (1 + e .* cos(thi)) ./ (1 - e.^2);
 
 %% Plot
-plot(om_vect, e_vect, 'b', 'LineWidth', 4)
+plot(om_vect, e_vect, 'b', 'LineWidth', 3)
 hold on
 grid on
-plot(omi_i, e_vect(ki), 'rx', 'MarkerSize', 20, 'LineWidth', 3)
-plot(omf, e_vect(kf), 'rx', 'MarkerSize', 20, 'LineWidth', 3)
-plot(om_vect(ki:it_iniziali), e_vect(ki:it_iniziali), 'r', 'LineWidth', 4)
-plot(om_vect(1:kf), e_vect(1:kf), 'r', 'LineWidth', 4)
-set(gca, 'FontSize', 25)
-xlabel('\omega', 'FontSize', 45)
-ylabel('e', 'FontSize', 45)
-legend('$ e<0 \cup e \ge 1 $', '', '', '$ 0 \le e < 1 $', 'Interpreter', 'latex', fontsize = 40)
+plot(omi_i, e_vect(ki), 'rx', 'MarkerSize', 25, 'LineWidth', 3)
+plot(omf, e_vect(kf), 'rx', 'MarkerSize', 25, 'LineWidth', 3)
+plot(om_vect(ki:it_iniziali), e_vect(ki:it_iniziali), 'r', 'LineWidth', 3)
+plot(om_vect(1:kf), e_vect(1:kf), 'r', 'LineWidth', 3)
+set(gca, 'FontSize', 25, 'GridAlpha', 0.5)
+xlabel('\omega [rad]', 'FontSize', 30)
+ylabel('e', 'FontSize', 30)
+legend('$ e<0 \cup e \ge 1 $', '', '', '$ 0 \le e < 1 $', 'Interpreter', 'latex', fontsize = 30)
