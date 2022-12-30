@@ -9,8 +9,8 @@ spessore = [6; 3; 3; 3; 4; 4; 3; 3; 6; 6; 5];
 color = ["#0000cd"; "#EDB120";"#c0c0c0"; "#d2b48c"; "#ff4500"; "#dc143c"; "#ffc0cb"; "#778899"; "r"; "b"; "#0000cd"];
 plot_paolo_modificato(tempi, vv, forma, spessore, color);
 
-ylabel('\DeltaV [km/s]');
-xlabel('Time required [s]');
+ylabel('\DeltaV [km/s]', FontSize=15);
+xlabel('Time required [s]', FontSize=15);
 vv_min = min(vv);
 t_min = min(tempi);
 
