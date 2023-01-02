@@ -20,7 +20,7 @@ for j = 1:length(th)
     vv = [vv v];
 end
 
-plot3(rr(1,:), rr(2,:), rr(3,:), Color);
+plot3(rr(1,:), rr(2,:), rr(3,:), Color,  LineWidth=1.5);
 %comet3(rr(1,:), rr(2,:), rr(3,:));
 
 rri = rr(:, 1);

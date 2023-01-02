@@ -83,20 +83,20 @@ plotOrbit_leggero(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b--')
 
 
 % intersezioni
-plot3(rr(1), rr(2), rr(3), 'ko');
+plot3(rr(1), rr(2), rr(3), 'ks', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='r');
 
 [rrpt, vvpt] = par2car(at, et, ii, OMi, omt, 0, "rad");
-plot3(rrpt(1), rrpt(2), rrpt(3), 'k*');
+plot3(rrpt(1), rrpt(2), rrpt(3), 'ko', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='m');
 [rrat, vvat] = par2car(at, et, ii, OMi, omt, pi, "rad");
-plot3(rrat(1), rrat(2), rrat(3), 'k*');
+plot3(rrat(1), rrat(2), rrat(3), 'ko', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='c');
 
 [rrcp, vvcp] = par2car(raf, e_2, i_f, OMf, om2, theta_cp, "rad");
-plot3(rrcp(1), rrcp(2), rrcp(3), 'k*');
+plot3(rrcp(1), rrcp(2), rrcp(3), 'ko', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='g');
 [rr2, vv2] = par2car(af, ef, i_f, OMf, omf, thf, "rad");
-plot3(rr2(1), rr2(2), rr2(3), 'ko');
+plot3(rr2(1), rr2(2), rr2(3), 'ks', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='b');
 
 [rrbt, vvbt] = par2car(raf, e_2, i_f, OMf, omf, pi, "rad");
-plot3(rrbt(1), rrbt(2), rrbt(3), 'k*');
+plot3(rrbt(1), rrbt(2), rrbt(3), 'ko', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='b');
 
 % legenda
 legend('', ...
@@ -106,7 +106,22 @@ legend('', ...
         'Circular Orbit', ...   %c
         'Change Plane Orbit', ...  % g
         'Final Orbit', ...
-        '',...          %b
-        'Initial and Final Point', ...  %ko
-        'Maneuver Points', fontsize=15)   %k*
+         fontsize=15)   %k*
 
+%% Animated plot
+% Terra_3D
+% plot3(rr(1), rr(2), rr(3), 'ko', MarkerSize=10);
+% % orbita iniziale
+% plotOrbit_anime(ai, ei, ii, OMi, omi, thi, 2*pi, 'r');
+% 
+% plotOrbit_anime(at, et, ii, OMi, omt, 0, pi, 'm');
+% 
+% plotOrbit_anime(raf, e_2, ii, OMi, omt, pi, theta_cp, 'c');
+% 
+% plotOrbit_anime(raf, e_2, i_f, OMf, om2, theta_cp, pi + omf - om2, 'g');
+% 
+% plotOrbit_anime(af, ef, i_f, OMf, omf, pi, thf, 'b');
+% 
+% fig = figure(2);
+% 
+% writeAnimation(fig, "loop.gif","LoopCount", 1 )
