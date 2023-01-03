@@ -41,8 +41,8 @@ rrf = rr(:, end);
 
 %% Plot
 rotate3d on
-marker = plot3(NaN, NaN, NaN, 'Color', marker_color);
-line = plot3(NaN, NaN, NaN, 'Color', line_color);
+marker = plot3(NaN, NaN, NaN, 'Color', marker_color, 'MarkerSize',10);
+line = plot3(NaN, NaN, NaN, 'Color', line_color, LineWidth=2);
 
 for j = 1 : n
     set(marker, 'Marker','o','XData', rr(1, j), 'YData', rr(2, j), 'ZData', rr(3, j));

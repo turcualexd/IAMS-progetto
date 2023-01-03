@@ -43,9 +43,9 @@ grid on;
 axis equal;
 
 % Put the axes labels
-xlabel('X [km]');
-ylabel('Y [km]');
-zlabel('Z [km]');
+xlabel('X [km]', 'FontSize', 15);
+ylabel('Y [km]', 'FontSize', 15);
+zlabel('Z [km]', 'FontSize', 15);
 
 % Set initial view
 view(120,30);
