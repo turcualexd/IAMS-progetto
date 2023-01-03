@@ -61,14 +61,14 @@ deltat_tot_h = deltat_tot/3600 %tempo in ore
 % iniziale
 Terra_3D
 %plotOrbit_leggero(ai, ei, ii, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--')
-plotOrbit_leggero(ai, ei, ii, OMi, omi, thi, 2*pi, 0.001, 'rad', 'r--')
+plotOrbit_leggero(ai, ei, ii, OMi, omi, thi, 2*pi, 0.001, 'rad', 'r')
 hold on
 % arco
-plotOrbit_leggero(at, et, ii, OMi, omt, 0, pi, 0.001, 'rad', 'm--')
-plotOrbit_leggero(af, ef, ii, OMi, omt, pi, theta_cp, 0.001, 'rad', 'c--')
+plotOrbit_leggero(at, et, ii, OMi, omt, 0, pi, 0.001, 'rad', 'm')
+plotOrbit_leggero(af, ef, ii, OMi, omt, pi, theta_cp, 0.001, 'rad', 'c')
 
 % cambio piano
-plotOrbit_leggero(af, ef, i_f, OMf, om2, theta_cp,theta_cwi , 0.001, 'rad', 'g--')
+plotOrbit_leggero(af, ef, i_f, OMf, om2, theta_cp,theta_cwi , 0.001, 'rad', 'g')
 
 
 % finale
