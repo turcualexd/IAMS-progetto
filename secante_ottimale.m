@@ -233,11 +233,11 @@ if plot
     plotOrbit(at, et, i_t, OMt, omt, th1_trasf, th2_trasf, 1e-3, 'rad', 'green')
     plotOrbit(af, ef, i_f, OMf, omf, th2_finale, thf, 1e-3, 'rad', 'b')
     
-    plot3(rri(1), rri(2), rri(3), 'ko');
-    plot3(rrf(1), rrf(2), rrf(3), 'ko');
+    plot3(rri(1), rri(2), rri(3), 'ko', MarkerSize=8);
+    plot3(rrf(1), rrf(2), rrf(3), 'ko', MarkerSize=8);
     
-    plot3(rr1(1), rr1(2), rr1(3), 'r*');
-    plot3(rr2(1), rr2(2), rr2(3), 'r*');
+    plot3(rr1(1), rr1(2), rr1(3), 'r*', MarkerSize=8);
+    plot3(rr2(1), rr2(2), rr2(3), 'r*', MarkerSize=8);
     
     plotOrbit_leggero(ai, ei, i_i, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--')
     plotOrbit_leggero(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b--')

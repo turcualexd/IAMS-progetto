@@ -88,7 +88,7 @@ plotOrbit_leggero(af, ef, i_f, OMf, omf, theta_cwf, thf, 0.001, 'rad', 'b--')
 %plot3(rrat(1), rrat(2), rrat(3), 'ko', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='c');
 
 [rrcp, vvcp] = par2car(af, ef, i_f, OMf, om2, theta_cp, "rad");
-plot3(rrcp(1), rrcp(2), rrcp(3), 'ko', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='g');
+plot3(rrcp(1), rrcp(2), rrcp(3), 'ko', MarkerSize=9, MarkerEdgeColor='k', MarkerFaceColor='g');
 % 
 % [rrcw, vvcw] = par2car(af, ef, i_f, OMf, omf, theta_cwf, "rad");
 % plot3(rrcw(1), rrcw(2), rrcw(3), 'ko', MarkerSize=10, MarkerEdgeColor='k', MarkerFaceColor='b');

@@ -85,26 +85,26 @@ plotOrbit(a_bit, e_bit, i_bit, OM_bit, om_bit, th_cp_bit, th_bit_f, 0.001, 'rad'
 plotOrbit(a_f, e_f, i_f, OM_f, om_f, th_bit_f, th_f, 0.001, 'rad', 'b');
 
 % punto iniziale
-plot3(rr_i(1), rr_i(2), rr_i(3), 'ko');
+plot3(rr_i(1), rr_i(2), rr_i(3), 'ko', MarkerSize=8);
 
 % intersezione iniziale - tangente
 rr_i_tan = par2car(a_i, e_i, i_i, OM_i, om_i, th_i_tan_1);
-plot3(rr_i_tan(1), rr_i_tan(2), rr_i_tan(3), 'k*');
+plot3(rr_i_tan(1), rr_i_tan(2), rr_i_tan(3), 'k*', MarkerSize=8);
 
 % intersezione tangente - cambio piano
 rr_tan_cp = par2car(a_tan, e_tan, i_tan, OM_tan, om_tan, th_tan_cp);
-plot3(rr_tan_cp(1), rr_tan_cp(2), rr_tan_cp(3), 'k*');
+plot3(rr_tan_cp(1), rr_tan_cp(2), rr_tan_cp(3), 'k*', MarkerSize=8);
 
 % intersezione cambio piano - bitangente
 rr_cp_bit = par2car(a_cp, e_cp, i_cp, OM_cp, om_cp, th_cp_bit);
-plot3(rr_cp_bit(1), rr_cp_bit(2), rr_cp_bit(3), 'k*');
+plot3(rr_cp_bit(1), rr_cp_bit(2), rr_cp_bit(3), 'k*', MarkerSize=8);
 
 % intersezione bitangente - finale
 rr_bit_f = par2car(a_bit, e_bit, i_bit, OM_bit, om_bit, th_bit_f);
-plot3(rr_bit_f(1), rr_bit_f(2), rr_bit_f(3), 'k*');
+plot3(rr_bit_f(1), rr_bit_f(2), rr_bit_f(3), 'k*', MarkerSize=8);
 
 % punto finale
-plot3(rr_f(1), rr_f(2), rr_f(3), 'ko');
+plot3(rr_f(1), rr_f(2), rr_f(3), 'ko', MarkerSize=8);
 
 % titolo
 % title(sprintf('\\DeltaV = %g km/s   -   \\DeltaT = %g h', deltaV_tot, T_tot/60^2))
