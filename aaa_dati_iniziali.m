@@ -22,19 +22,21 @@ plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b')
 plot3(rri(1), rri(2), rri(3), 'ro', LineWidth=2);
 plot3(rrf(1), rrf(2), rrf(3), 'bo', LineWidth=2);
 
+quiver3(rri(1), rri(2), rri(3), vvi(1), vvi(2), vvi(3), 1e3, color="#D00A00", LineWidth=2);
+quiver3(rrf(1), rrf(2), rrf(3), vvf(1), vvf(2), vvf(3), 1e3, color = "#3724AA", LineWidth=2);
+
 legend('', 'Initial Orbit', 'Final Orbit',...
-    'Initial Point', 'Final Point', fontsize=15)
+    'Initial Point', 'Final Point', 'Initial Velocity', 'Final Velocity', fontsize=15)
 
 %% 
 
 Terra_3D
 
+plotOrbit(ai, ei, i_i, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r');
 plot3(rri(1), rri(2), rri(3), 'ro', LineWidth=1);
+quiver3(rri(1), rri(2), rri(3), vvi(1), vvi(2), vvi(3), 1e3, 'r', LineWidth=2);
 
-quiver3(rri(1), rri(2), rri(3), vvi(1), vvi(2), vvi(3), 1e3, 'r', LineWidth=1);
-plotOrbit_leggero(ai, ei, i_i, OMi, omi, 0, 2*pi, 0.001, 'rad', 'r--');
-
-legend('', 'Initial position', 'Initial velocity','Found Orbit', fontsize=15)
+legend('', 'Initial Orbit', 'Initial position', 'Initial velocity', fontsize=15)
 
 %%
 
@@ -42,12 +44,12 @@ Terra_3D
 
 plotOrbit(af, ef, i_f, OMf, omf, 0, 2*pi, 0.001, 'rad', 'b');
 
-plot3(rrf(1), rrf(2), rrf(3), 'ko', LineWidth=2);
+plot3(rrf(1), rrf(2), rrf(3), 'bo', LineWidth=2);
 
 quiver3(rrf(1), rrf(2), rrf(3), vvf(1), vvf(2), vvf(3),1e3,...
-    'k', LineWidth=1,ShowArrowHead='on');
+    'b', LineWidth=1,ShowArrowHead='on');
 
-legend('', 'Final Orbit','Found point', 'Found velocity', fontsize=15)
+legend('', 'Final Orbit','Final Point', 'Final Velocity', fontsize=15)
 
 
 
