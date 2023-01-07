@@ -109,8 +109,8 @@ plot3(rr_f(1), rr_f(2), rr_f(3), 'ko');
 % titolo
 % title(sprintf('\\DeltaV = %g km/s   -   \\DeltaT = %g h', deltaV_tot, T_tot/60^2))
 
-plotOrbit_leggero(a_i, e_i, i_i, OM_i, om_i, 0, 2*pi, 0.001, 'rad', 'r--')
-plotOrbit_leggero(a_f, e_f, i_f, OM_f, om_f, 0, 2*pi, 0.001, 'rad', 'b--')
+plotOrbit_leggero(a_i, e_i, i_i, OM_i, om_i, 0, 2*pi, 0.001, 'rad', 'r--');
+plotOrbit_leggero(a_f, e_f, i_f, OM_f, om_f, 0, 2*pi, 0.001, 'rad', 'b--');
 
 
 % legenda
